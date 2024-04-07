@@ -1,0 +1,21 @@
+.btn {
+  font-weight: 100;
+
+  &-primary {
+    color: #fff;
+
+    &:hover {
+      border-color: $primary--dark;
+      background-color: $primary--dark;
+      color: #fff;
+    }
+
+    &:active {
+      color: #fff !important;
+    }
+  }
+
+  &--rounded {
+    border-radius: 50px;
+  }
+}
