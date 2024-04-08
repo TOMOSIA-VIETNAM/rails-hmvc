@@ -4,3 +4,7 @@ $font-family-base: 'Roboto', system-ui, BlinkMacSystemFont, 'Segoe UI';
 $dark: #27282c !default;
 $primary: #1fbba1 !default;
 $primary--dark: #2a9e8a !default;
+$black: #19191c !default;
+:root {
+  --c-black: #19191c;
+}

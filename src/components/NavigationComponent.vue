@@ -1,8 +1,9 @@
 <template>
-  <nav class="page-header navbar navbar-expand-lg py-0 bg-dark">
+  <nav class="navbar navbar-expand-lg py-0 bg-dark">
     <div class="container">
       <a class="navbar-brand py-0" href="#">
-        <img src="../assets/images/logo-dark.png" alt="logo" height="72" />
+        <img src="@/assets/images/logo-dark.png" alt="logo" height="72" />
+        <span class="badge-corp">Tomosia's Ruby</span>
       </a>
       <button
         class="navbar-toggler"
@@ -34,7 +35,7 @@
 
           <li class="nav-item">
             <a class="nav-link">
-              <a link="#" class="btn btn--rounded btn-primary">Book a demo</a>
+              <a link="#" class="btn btn--rounded btn-primary">Contact with us</a>
             </a>
           </li>
         </ul>
@@ -50,6 +51,16 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 <style scoped>
 .navbar-nav {
   align-items: center;
+}
+
+.badge-corp {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  font-weight: 100;
+  margin-left: 10px;
+  border-radius: 4px;
+  padding: 0.35em 0.65em;
 }
 
 .nav-link {
