@@ -1,5 +1,5 @@
 <template>
-  <div class="header-hero">
+  <section class="header-hero">
     <div class="header-hero__background">
       <HeaderHeroSvg />
     </div>
@@ -9,10 +9,10 @@
           <h1 class="hero-title">High level MVC</h1>
           <h1 class="hero-subtitle">Simplify business logic and rapid application development</h1>
           <div class="hero-control row align-items-center">
-            <div class="col-3 hero-control__btn">
+            <div class="col-sm-3 hero-control__btn">
               <a href="" class="btn btn--rounded btn-dark">Install for free</a>
             </div>
-            <div class="col-3 hero-control__desc">
+            <div class="col-sm-3 hero-control__desc">
               <p>Full-fledged Professional or Free Community</p>
             </div>
           </div>
@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>
@@ -56,10 +56,11 @@ import HeaderHeroSvg from './icons/IconLayer.vue'
     z-index: 2;
 
     .hero-title {
-      font-family: 'Besley', Roboto, Geneva, Verdana, sans-serif;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      letter-spacing: -0.75px;
       font-size: 3.6rem;
       color: var(--c-black);
-      letter-spacing: -0.75px;
     }
 
     .hero-subtitle {
@@ -81,13 +82,14 @@ import HeaderHeroSvg from './icons/IconLayer.vue'
         .btn {
           font-size: 20px;
           padding: 0.75rem 2rem;
+          font-weight: 100;
         }
       }
 
       &__desc {
         font-size: 1rem;
-        font-weight: 100;
-        color: rgba(25, 25, 28, 0.7);
+        font-weight: 300;
+        color: rgba(25, 25, 28, 0.5);
         padding-top: 20px;
       }
     }

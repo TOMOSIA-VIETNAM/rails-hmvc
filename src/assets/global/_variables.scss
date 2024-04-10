@@ -3,8 +3,13 @@ $font-family-base: 'Roboto', system-ui, BlinkMacSystemFont, 'Segoe UI';
 // Colors
 $dark: #27282c !default;
 $primary: #1fbba1 !default;
-$primary--dark: #2a9e8a !default;
+$primary--300: #2a9e8a !default;
 $black: #19191c !default;
+$gray--700: #696969 !default;
+$gray--200: #eaeaec !default;
+
 :root {
   --c-black: #19191c;
+  --c-gray-700: #696969;
+  --font-heading: 'Noto Sans', Roboto, sans-serif;
 }

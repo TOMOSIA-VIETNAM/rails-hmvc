@@ -1,12 +1,12 @@
 .btn {
-  font-weight: 100;
+  font-weight: 300;
 
   &-primary {
     color: #fff;
 
     &:hover {
-      border-color: $primary--dark;
-      background-color: $primary--dark;
+      border-color: $primary--300;
+      background-color: $primary--300;
       color: #fff;
     }
 
