@@ -1,7 +1,7 @@
 <template>
   <section class="section bg-gray--200 overview-feature">
-    <div class="container why-choose">
-      <div class="row">
+    <div class="container">
+      <div class="row why-choose">
         <div class="col-3">
           <div class="why-choose__title">
             Why <br />
@@ -53,7 +53,7 @@
         </div>
 
         <div class="col-9">
-          <div class="overview-feature__image">
+          <div class="overview-feature__image image-box">
             <img src="@/assets/images/code-completion-animation.gif" alt="" />
           </div>
         </div>
@@ -121,17 +121,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
   }
 
   &__image {
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    vertical-align: top;
     margin-left: 7rem;
-
-    img {
-      vertical-align: top;
-      height: auto;
-      max-width: 100%;
-    }
   }
 }
 </style>

@@ -9,7 +9,9 @@ $gray--700: #696969 !default;
 $gray--200: #eaeaec !default;
 
 :root {
+  --c-primary--300: $primary--300;
   --c-black: #19191c;
   --c-gray-700: #696969;
+
   --font-heading: 'Noto Sans', Roboto, sans-serif;
 }
