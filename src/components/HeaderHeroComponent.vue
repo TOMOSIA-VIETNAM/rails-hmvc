@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-import HeaderHeroSvg from './icons/IconLayer.vue'
+import HeaderHeroSvg from './icons/MultiLayerIcon.vue'
 </script>
 
 <style lang="scss" scoped>

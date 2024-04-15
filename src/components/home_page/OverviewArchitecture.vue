@@ -3,9 +3,9 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <div class="overview-arch__heading">
-            <h1>Knowledge <span class="text-primary">architecture</span></h1>
-          </div>
+          <h2 class="overview-arch__heading">
+            Knowledge <span class="text-primary">architecture</span>
+          </h2>
         </div>
       </div>
     </div>
@@ -114,17 +114,13 @@ const activeImage = () => {
 <style lang="scss" scope>
 .overview-arch {
   &__heading {
-    margin-bottom: 90px;
-
-    h1 {
-      font-family: var(--font-heading);
-      font-weight: 900;
-      font-size: 43px;
-      line-height: 48px;
-      text-transform: uppercase;
-      color: var(--c-black);
-      margin-bottom: 46px;
-    }
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 43px;
+    line-height: 48px;
+    text-transform: uppercase;
+    color: #000;
+    margin-bottom: 5.75rem;
   }
 
   .slideshow {
@@ -147,7 +143,7 @@ const activeImage = () => {
       }
 
       &__title {
-        color: rgba(25, 25, 28, 0.5);
+        color: var(--c-gray-700);
         font-weight: 400;
         font-size: 1.25rem;
       }

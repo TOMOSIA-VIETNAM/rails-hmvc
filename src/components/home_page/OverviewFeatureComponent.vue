@@ -12,34 +12,32 @@
 
       <div class="row">
         <div class="col-7">
-          <div class="overview-feature__heading">
-            <h1>
-              Refactor for clarity<br />
-              <span class="text-black-50">lessen debt</span>
-            </h1>
-          </div>
+          <h2 class="overview-feature__heading">
+            Refactor for clarity<br />
+            <span class="text-black-50">lessen debt</span>
+          </h2>
         </div>
       </div>
 
       <div class="row">
         <div class="col-3">
           <div class="overview-feature__block">
-            <h3>Missing abstractions</h3>
-            <p>
+            <h3 class="overview-feature__block-title">Missing abstractions</h3>
+            <p class="overview-feature__block-desc">
               Web frameworks excel in routing and rendering but often lack sufficient abstractions
               for organizing business logic, resulting in complex, hard-to-maintain code.
             </p>
           </div>
           <div class="overview-feature__block">
-            <h3>Our toolbox</h3>
-            <p>
+            <h3 class="overview-feature__block-title">Our toolbox</h3>
+            <p class="overview-feature__block-desc">
               HMVC introduces the "operation" abstraction, breaking code into manageable steps to
               enhance logic structure and flow control.
             </p>
           </div>
           <div class="overview-feature__block">
-            <h3>Bullet-proof conventions</h3>
-            <p>
+            <h3 class="overview-feature__block-title">Bullet-proof conventions</h3>
+            <p class="overview-feature__block-desc">
               HMVC simplifies error handling with the Railway pattern, reducing conditionals and
               enhancing code reusability through inheritance and composition.
             </p>
@@ -86,24 +84,20 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
   }
 
   &__heading {
-    margin-bottom: 90px;
-
-    h1 {
-      font-family: var(--font-heading);
-      font-weight: 900;
-      font-size: 54px;
-      line-height: 48px;
-      text-transform: uppercase;
-      color: var(--c-black);
-      margin-bottom: 46px;
-    }
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 54px;
+    line-height: 48px;
+    text-transform: uppercase;
+    color: var(--c-black);
+    margin-bottom: 46px;
   }
 
   &__block {
     line-height: 25px;
     margin-bottom: 50px;
 
-    h3 {
+    &-title {
       font-family: var(--font-heading);
       font-weight: 700;
       font-size: 18px;
@@ -112,7 +106,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
       color: var(--c-black);
     }
 
-    p {
+    &-desc {
       margin-bottom: 10px;
       line-height: 25px;
       font-weight: 300;
