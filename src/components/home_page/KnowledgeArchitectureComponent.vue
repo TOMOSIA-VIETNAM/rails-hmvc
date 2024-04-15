@@ -1,16 +1,16 @@
 <template>
-  <section class="section overview-arch">
+  <section class="section knowledge-arch">
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h2 class="overview-arch__heading">
+          <h2 class="knowledge-arch__heading">
             Knowledge <span class="text-primary">architecture</span>
           </h2>
         </div>
       </div>
     </div>
 
-    <div class="container overview-arch__slideshow">
+    <div class="container knowledge-arch__slideshow">
       <div class="row">
         <div class="col-8 pe-5">
           <div class="slideshow__slide image-box">
@@ -112,7 +112,7 @@ const activeImage = () => {
 </script>
 
 <style lang="scss" scope>
-.overview-arch {
+.knowledge-arch {
   &__heading {
     font-family: var(--font-heading);
     font-weight: 900;

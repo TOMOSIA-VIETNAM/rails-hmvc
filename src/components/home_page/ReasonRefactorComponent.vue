@@ -1,5 +1,5 @@
 <template>
-  <section class="section bg-gray--200 overview-feature">
+  <section class="section bg-gray--200 reason-refactor">
     <div class="container">
       <div class="row why-choose">
         <div class="col-3">
@@ -12,7 +12,7 @@
 
       <div class="row">
         <div class="col-7">
-          <h2 class="overview-feature__heading">
+          <h2 class="reason-refactor__heading">
             Refactor for clarity<br />
             <span class="text-black-50">lessen debt</span>
           </h2>
@@ -21,28 +21,28 @@
 
       <div class="row">
         <div class="col-3">
-          <div class="overview-feature__block">
-            <h3 class="overview-feature__block-title">Missing abstractions</h3>
-            <p class="overview-feature__block-desc">
+          <div class="reason-refactor__block">
+            <h3 class="reason-refactor__block-title">Missing abstractions</h3>
+            <p class="reason-refactor__block-desc">
               Web frameworks excel in routing and rendering but often lack sufficient abstractions
               for organizing business logic, resulting in complex, hard-to-maintain code.
             </p>
           </div>
-          <div class="overview-feature__block">
-            <h3 class="overview-feature__block-title">Our toolbox</h3>
-            <p class="overview-feature__block-desc">
+          <div class="reason-refactor__block">
+            <h3 class="reason-refactor__block-title">Our toolbox</h3>
+            <p class="reason-refactor__block-desc">
               HMVC introduces the "operation" abstraction, breaking code into manageable steps to
               enhance logic structure and flow control.
             </p>
           </div>
-          <div class="overview-feature__block">
-            <h3 class="overview-feature__block-title">Bullet-proof conventions</h3>
-            <p class="overview-feature__block-desc">
+          <div class="reason-refactor__block">
+            <h3 class="reason-refactor__block-title">Bullet-proof conventions</h3>
+            <p class="reason-refactor__block-desc">
               HMVC simplifies error handling with the Railway pattern, reducing conditionals and
               enhancing code reusability through inheritance and composition.
             </p>
           </div>
-          <div class="overview-feature__block">
+          <div class="reason-refactor__block">
             <button class="btn btn-outline-primary btn--rounded px-4 py-2">
               <font-awesome-icon :icon="faPlay" />
               <span class="ps-3">Take a video tour</span>
@@ -51,7 +51,7 @@
         </div>
 
         <div class="col-9">
-          <div class="overview-feature__image image-box">
+          <div class="reason-refactor__image image-box">
             <img src="@/assets/images/code-completion-animation.gif" alt="" />
           </div>
         </div>
@@ -65,7 +65,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
 </script>
 
 <style lang="scss" scoped>
-.overview-feature {
+.reason-refactor {
   .why-choose {
     &__title {
       font-size: 12px;
@@ -89,7 +89,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
     font-size: 54px;
     line-height: 48px;
     text-transform: uppercase;
-    color: var(--c-black);
+    color: var(--c-gray-900);
     margin-bottom: 46px;
   }
 
@@ -103,7 +103,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
       font-size: 18px;
       margin-top: 0;
       margin-bottom: 10px;
-      color: var(--c-black);
+      color: var(--c-gray-900);
     }
 
     &-desc {

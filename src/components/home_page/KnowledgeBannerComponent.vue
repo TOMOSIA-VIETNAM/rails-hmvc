@@ -5,9 +5,11 @@
         <HeaderHeroSvg />
       </div>
 
-      <div class="banner-knowledge__heading">
-        <h2>Just master Rails</h2>
-        <p>No need for other frameworks. Versatile for any project.</p>
+      <div>
+        <h2 class="banner-knowledge__heading">Just master Rails</h2>
+        <p class="banner-knowledge__desc">
+          No need for other frameworks. Versatile for any project.
+        </p>
       </div>
 
       <div class="banner-knowledge__buttons">
@@ -39,21 +41,20 @@ import HeaderHeroSvg from '../icons/MultiLayerIcon.vue'
       -ms-transform: rotate(640deg);
     }
   }
-  &__heading {
-    h2 {
-      font-family: var(--font-a-heading);
-      font-weight: 600;
-      font-size: 43px;
-      color: #fff;
-      margin-bottom: 1.875rem;
-    }
 
-    p {
-      font-family: var(--font-sub-heading);
-      font-weight: 100;
-      font-size: 30px;
-      color: #fff;
-    }
+  &__heading {
+    font-family: var(--font-sub-heading);
+    font-weight: 100;
+    font-size: 2.6875rem;
+    color: #fff;
+    margin-bottom: 1.875rem;
+  }
+
+  &__desc {
+    font-family: var(--font-sub-heading);
+    font-weight: 100;
+    font-size: 1.4rem;
+    color: #fff;
   }
 
   &__buttons {

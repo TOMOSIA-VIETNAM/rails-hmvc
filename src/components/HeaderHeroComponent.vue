@@ -60,7 +60,7 @@ import HeaderHeroSvg from './icons/MultiLayerIcon.vue'
       font-weight: 700;
       letter-spacing: -0.75px;
       font-size: 3.6rem;
-      color: var(--c-black);
+      color: var(--c-gray-900);
     }
 
     .hero-subtitle {
