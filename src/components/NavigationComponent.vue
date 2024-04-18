@@ -33,11 +33,11 @@
             <a class="nav-link">About</a>
           </li>
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link">
               <a link="#" class="btn btn--rounded btn-primary">Contact with us</a>
             </a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>

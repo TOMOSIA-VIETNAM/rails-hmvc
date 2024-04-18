@@ -5,6 +5,7 @@
   <KnowledgeBannerComponent />
   <AbstractionLayerComponent />
   <OwnerSayComponent />
+  <FooterPageComponent />
 </template>
 
 <script setup>
@@ -14,4 +15,5 @@ import KnowledgeArchitectureComponent from '@/components/home_page/KnowledgeArch
 import KnowledgeBannerComponent from '@/components/home_page/KnowledgeBannerComponent.vue'
 import AbstractionLayerComponent from '@/components/home_page/AbstractionLayerComponent.vue'
 import OwnerSayComponent from '@/components/home_page/OwnerSayComponent.vue'
+import FooterPageComponent from '@/components/FooterPageComponent.vue'
 </script>
