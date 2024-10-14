@@ -2,9 +2,15 @@
   <section class="enhanced-slider" ref="sliderRef">
     <div class="enhanced-slider__container">
       <div class="enhanced-slider__image-section">
-        <transition name="fade" mode="out-in">
-          <img :src="currentSlide.imageSrc" :alt="currentSlide.title" :key="currentSlide.id" />
-        </transition>
+        <transition-group name="fade" mode="out-in">
+          <img
+            v-for="slide in slides"
+            :key="slide.id"
+            :src="slide.imageSrc"
+            :alt="slide.title"
+            :class="{ 'active': slide.id === currentSlide.id }"
+          />
+        </transition-group>
       </div>
       <div class="enhanced-slider__content-section">
         <div
@@ -13,8 +19,8 @@
           class="enhanced-slider__content-item"
           :class="{ 'active': index === currentIndex }"
           @click="setCurrentSlide(index)"
-          @mouseenter="pauseAutoplay"
-          @mouseleave="resumeAutoplay"
+          @mouseenter="hoveredIndex = index"
+          @mouseleave="hoveredIndex = null"
         >
           <div class="enhanced-slider__content-wrapper">
             <h3 class="enhanced-slider__title">{{ slide.title }}</h3>
@@ -66,6 +72,7 @@ const autoplayInterval = ref(null);
 const sliderRef = ref(null);
 const isInViewport = ref(false);
 const isPaused = ref(false);
+const hoveredIndex = ref(null);
 
 const currentSlide = computed(() => slides[currentIndex.value]);
 
@@ -86,21 +93,13 @@ const resetProgress = () => {
 const startAutoplay = () => {
   if (autoplayInterval.value) clearInterval(autoplayInterval.value);
   autoplayInterval.value = setInterval(() => {
-    if (!isPaused.value) {
+    if (hoveredIndex.value !== currentIndex.value) {
       progress.value += 1;
       if (progress.value >= 100) {
         nextSlide();
       }
     }
   }, 100); // Update every 100ms for smooth progress
-};
-
-const pauseAutoplay = () => {
-  isPaused.value = true;
-};
-
-const resumeAutoplay = () => {
-  isPaused.value = false;
 };
 
 const checkInViewport = () => {
@@ -139,11 +138,21 @@ watch(isInViewport, (newValue) => {
   &__image-section {
     flex: 0 0 60%;
     overflow: hidden;
+    position: relative;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: contain;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.75s ease-in-out;
+
+      &.active {
+        opacity: 1;
+      }
     }
   }
 
@@ -151,7 +160,7 @@ watch(isInViewport, (newValue) => {
     flex: 0 0 40%;
     display: flex;
     flex-direction: column;
-    padding-left: 1.5rem;
+    padding-left: 3rem;
   }
 
   &__content-item {
@@ -165,6 +174,7 @@ watch(isInViewport, (newValue) => {
     margin-bottom: 10px;
 
     &.active {
+      padding: 24px;
       background-color: rgba(11, 37, 32, 0.9);
 
       .enhanced-slider__title,
@@ -244,14 +254,18 @@ watch(isInViewport, (newValue) => {
   }
 }
 
-// Hiệu ứng fade cho hình ảnh (0.5 giây)
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.75s ease-in-out;
 }
 
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
 }
 </style>

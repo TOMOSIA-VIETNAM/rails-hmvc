@@ -1,10 +1,10 @@
 <template>
-  <section class="section knowledge-arch">
+  <section class="section knowledge-arch bg-gray--100">
     <div class="container">
       <div class="row">
         <div class="col-12">
           <h2 class="knowledge-arch__heading">
-            Knowledge <span class="text-primary">architecture</span>
+            Knowledge architecture<span class="text-primary"></span>
           </h2>
         </div>
       </div>
@@ -24,12 +24,11 @@ import EnhancedSliderComponent from '@/components/home_page/EnhancedSliderCompon
 .knowledge-arch {
   &__heading {
     font-family: var(--font-heading);
-    font-weight: 900;
-    font-size: 43px;
-    line-height: 48px;
-    text-transform: uppercase;
-    color: #000;
-    margin-bottom: 5.75rem;
+    color: var(--c-gray-900);
+    font-weight: 500;
+    font-size: 2.3rem;
+    padding: 1rem 0 3rem;
+    letter-spacing: 1.3px;
   }
 }
 </style>
