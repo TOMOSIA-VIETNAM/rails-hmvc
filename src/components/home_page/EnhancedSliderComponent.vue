@@ -18,7 +18,7 @@
         >
           <div class="enhanced-slider__content-wrapper">
             <h3 class="enhanced-slider__title">{{ slide.title }}</h3>
-            <p class="enhanced-slider__description">{{ slide.description }}</p>
+            <p class="enhanced-slider__description" v-if="index === currentIndex">{{ slide.description }}</p>
           </div>
           <div
             class="enhanced-slider__progress-bar"
@@ -137,7 +137,7 @@ watch(isInViewport, (newValue) => {
   }
 
   &__image-section {
-    flex: 0 0 65%;
+    flex: 0 0 60%;
     overflow: hidden;
 
     img {
@@ -148,20 +148,21 @@ watch(isInViewport, (newValue) => {
   }
 
   &__content-section {
-    flex: 0 0 35%;
+    flex: 0 0 40%;
     display: flex;
     flex-direction: column;
     padding-left: 1.5rem;
   }
 
   &__content-item {
-    flex: 1;
+    flex: 0 1 auto;
     position: relative;
-    padding: 20px;
+    padding: 15px;
     border-radius: 1.5rem;
     cursor: pointer;
     overflow: hidden;
     transition: background-color 0.3s ease;
+    margin-bottom: 10px;
 
     &.active {
       background-color: rgba(11, 37, 32, 0.9);
@@ -185,6 +186,9 @@ watch(isInViewport, (newValue) => {
 
   &__description {
     font-size: 0.9rem;
+    transition: opacity 0.3s ease;
+    overflow-y: auto;
+    max-height: 150px;
   }
 
   &__progress-bar {
@@ -197,7 +201,7 @@ watch(isInViewport, (newValue) => {
   }
 }
 
-// Mobile styles
+// Responsive styles
 @media (max-width: 768px) {
   .enhanced-slider {
     &__container {
@@ -211,33 +215,39 @@ watch(isInViewport, (newValue) => {
       width: 100%;
     }
 
+    &__image-section {
+      height: 300px; // Adjust as needed
+    }
+
     &__content-section {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5);
+      position: relative;
+      background-color: #f5f5f5;
+      padding: 1rem;
     }
 
     &__content-item {
       background-color: transparent;
+      padding: 10px;
 
       &.active {
         background-color: rgba(11, 37, 32, 0.7);
       }
     }
 
-    &__title,
+    &__title {
+      font-size: 1rem;
+    }
+
     &__description {
-      color: #fff;
+      font-size: 0.8rem;
     }
   }
 }
 
+// Hiệu ứng fade cho hình ảnh (0.5 giây)
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .fade-enter-from,
