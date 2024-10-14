@@ -9,11 +9,9 @@
           <h1 class="hero-title">High level MVC</h1>
           <h1 class="hero-subtitle">Simplify business logic and rapid application development</h1>
           <div class="hero-control row align-items-center">
-            <div class="col-sm-3 hero-control__btn">
-              <a href="" class="btn btn--rounded btn-dark">Install for free</a>
-            </div>
-            <div class="col-sm-3 hero-control__desc">
-              <p>Full-fledged Professional or Free Community</p>
+            <div class="d-flex flex-align-center hero-control__btn">
+              <a href="" class="btn btn--rounded btn-dark me-4">Install for free</a>
+              <p class="hero-control__desc mb-0">Full-fledged Professional <br> or Free Community</p>
             </div>
           </div>
         </div>
@@ -59,38 +57,71 @@ import HeaderHeroSvg from './icons/MultiLayerIcon.vue'
       font-family: var(--font-heading);
       font-weight: 700;
       letter-spacing: -0.75px;
-      font-size: 3.6rem;
+      font-size: clamp(3rem, 5vw, 3.6rem);
       color: var(--c-gray-900);
     }
 
     .hero-subtitle {
       font-weight: 100;
-      font-size: 1.813rem;
+      font-size: clamp(1.2rem, 3vw, 1.813rem);
       margin-top: 1.25rem;
     }
 
     .hero-icon {
       margin-right: 35px;
+      @media (max-width: 1399px) {
+        display: none;
+      }
     }
 
     .hero-control {
-      padding-top: 2rem;
+      padding-top: 3rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
 
       &__btn {
-        margin-right: -3.75rem;
+        flex-shrink: 0;
 
         .btn {
-          font-size: 20px;
-          padding: 0.75rem 2rem;
+          font-size: clamp(17px, 3vw, 20px);
+          padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 3vw, 2rem);
           font-weight: 100;
+          white-space: nowrap;
         }
       }
 
       &__desc {
-        font-size: 1rem;
+        font-size: clamp(14px, 2.5vw, 16px);
         font-weight: 300;
         color: rgba(25, 25, 28, 0.5);
-        padding-top: 20px;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .header-hero {
+    &__content {
+      .hero-control {
+        flex-direction: column;
+        align-items: flex-start;
+
+        &__btn {
+          width: 100%;
+
+          .btn {
+            max-width: 100%;
+          }
+        }
+
+        &__desc {
+          text-align: center;
+          width: 100%;
+        }
       }
     }
   }
