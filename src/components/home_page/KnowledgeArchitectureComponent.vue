@@ -32,7 +32,6 @@
                     SVN, Mercurial, and many others.
                   </p>
                 </div>
-
                 <div class="slideshow__switcher__indicator"></div>
               </div>
             </li>
@@ -42,12 +41,14 @@
                 data-image-src="overview-layer.png"
                 @click="onClickTabSwitcher"
               >
-                <p class="slideshow__switcher__title">Overview Layer</p>
-                <p class="slideshow__switcher__desc">
-                  Сontext-sensitive code completion helps you write SQL code faster. DataGrip is
-                  aware of the table structure, foreign keys, and even database objects created in
-                  the code you're editing.
-                </p>
+                <div class="slideshow__switcher__content">
+                  <p class="slideshow__switcher__title">Overview Layer</p>
+                  <p class="slideshow__switcher__desc">
+                    Сontext-sensitive code completion helps you write SQL code faster. DataGrip is
+                    aware of the table structure, foreign keys, and even database objects created in
+                    the code you're editing.
+                  </p>
+                </div>
               </div>
             </li>
             <li>
@@ -56,11 +57,13 @@
                 data-image-src="flow-control.gif"
                 @click="onClickTabSwitcher"
               >
-                <p class="slideshow__switcher__title">Flow Control</p>
-                <p class="slideshow__switcher__desc">
-                  Execute queries in different modes and keep track of all your activity with the
-                  local history, preventing you from losing your work.
-                </p>
+                <div class="slideshow__switcher__content">
+                  <p class="slideshow__switcher__title">Flow Control</p>
+                  <p class="slideshow__switcher__desc">
+                    Execute queries in different modes and keep track of all your activity with the
+                    local history, preventing you from losing your work.
+                  </p>
+                </div>
               </div>
             </li>
             <li>
@@ -69,12 +72,14 @@
                 data-image-src="structure-project.png"
                 @click="onClickTabSwitcher"
               >
-                <p class="slideshow__switcher__title">Structure Project</p>
-                <p class="slideshow__switcher__desc">
-                  The query history feature preserves all queries in a log file, and the tool
-                  supports parameterized SQL queries with customizable patterns and SQL dialect
-                  options.
-                </p>
+                <div class="slideshow__switcher__content">
+                  <p class="slideshow__switcher__title">Structure Project</p>
+                  <p class="slideshow__switcher__desc">
+                    The query history feature preserves all queries in a log file, and the tool
+                    supports parameterized SQL queries with customizable patterns and SQL dialect
+                    options.
+                  </p>
+                </div>
               </div>
             </li>
           </ul>
@@ -88,26 +93,79 @@
 import { ref, onMounted } from 'vue'
 
 const imageSrc = ref('')
+const autoPlaySlide = ref(true)
+const durationSlide = 4000
+const waitTimeNextSlide = 500
 
-onMounted(() => activeImage())
+onMounted(() => {
+  // Trigger play slide in viewport
+  const $firstTab = document.querySelector('.slideshow__switcher__tab')
+  window.addEventListener('scroll', () => autoPlaySlideShow($firstTab))
+})
 
 const onClickTabSwitcher = (event) => {
-  // Add source image
   const $this = event.currentTarget
-  const $active = document.querySelector('.active')
-
-  if ($active) {
-    $active.classList.remove('active')
-  }
-  $this.classList.add('active')
-  imageSrc.value = `src/assets/images/${$this.dataset.imageSrc}`
+  playSlideShow($this)
 }
 
-const activeImage = () => {
-  const $active = document.querySelector('.active')
-  if ($active) {
-    imageSrc.value = `src/assets/images/${$active.dataset.imageSrc}`
+const autoPlaySlideShow = (element) => {
+  const rect = element.getBoundingClientRect()
+  const isVisible =
+    (rect.top >= 0 && rect.bottom <= window.innerHeight) ||
+    (rect.top < window.innerHeight && rect.bottom >= 0)
+
+  if (isVisible) {
+    if (autoPlaySlide.value) {
+      playSlide(element)
+      autoPlaySlide.value = false
+    }
   }
+}
+
+const playSlideShow = (currentTab) => {
+  const listTabs = Array.from(document.querySelectorAll('.slideshow__switcher__tab'))
+  let currentIndex = listTabs.indexOf(currentTab)
+
+  const playNextSlide = () => {
+    playSlide(listTabs[currentIndex])
+    currentIndex = (currentIndex + 1) % listTabs.length
+    setTimeout(playNextSlide, durationSlide + waitTimeNextSlide)
+  }
+
+  playNextSlide()
+}
+
+const playSlide = ($tab) => {
+  const $parent = $tab.closest('.slideshow__switcher')
+  const $tabActive = $parent.querySelector('.active')
+
+  // Reset progress bar
+  $parent.querySelector('.slideshow__switcher__indicator')?.remove()
+  $tabActive?.classList?.remove('active')
+  $tab.classList.add('active')
+
+  // Create progress bar
+  const $indicator = document.createElement('div')
+  $tab.appendChild($indicator)
+  $indicator.classList.add('slideshow__switcher__indicator')
+  animateProgressBar($indicator, durationSlide)
+
+  // Assign src image
+  imageSrc.value = `src/assets/images/${$tab.dataset.imageSrc}`
+}
+
+const animateProgressBar = (progressBar, duration) => {
+  let progress = 0
+  const increment = 100 / (duration / 16) // 16ms ~ 60fps
+
+  const interval = setInterval(() => {
+    progress += increment
+    progressBar.style.width = `${progress}%`
+
+    if (progress >= 110) {
+      clearInterval(interval)
+    }
+  }, 16) // 16ms ~ 60fps
 }
 </script>
 
@@ -162,8 +220,7 @@ const activeImage = () => {
         height: 100%;
         width: 0%;
         margin-left: -30px;
-        background-color: transparent;
-        transition: width 2s ease-in;
+        background-color: rgba(31, 187, 161, 0.33);
       }
 
       &__tab {
@@ -186,11 +243,6 @@ const activeImage = () => {
 
           .slideshow__switcher__desc {
             display: block;
-          }
-
-          .slideshow__switcher__indicator {
-            width: 120%;
-            background-color: rgba(31, 187, 161, 0.33);
           }
         }
       }
