@@ -11,8 +11,8 @@
       </div>
 
       <!-- Lean Controller -->
-      <div class="row abs-layer__box">
-        <div class="col-6">
+      <div class="abs-layer__box d-md-flex d-block">
+        <div class="col-md-6 col-12">
           <h3 class="abs-layer__box-title">Lean Controller</h3>
           <div class="abs-layer__box-desc">
             <p>Move your business logic out of controllers.</p>
@@ -22,15 +22,17 @@
             </p>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6 col-12">
           <highlightjs
             language="ruby"
             code="
-class MemosController < ApplicationController
+class LoginController < ApplicationController
+  # [POST]...
   def create
-    if Memo::Operation::Create.(params: params)
-      render
-    end
+    operator = Login::CreateOperation.new(params)
+    operator.call
+
+    # Logic here
   end
 end"
           />
@@ -38,19 +40,8 @@ end"
       </div>
 
       <!-- Slim Model -->
-      <div class="row abs-layer__box">
-        <div class="col-6">
-          <highlightjs
-            class="w-90p"
-            language="ruby"
-            code="
-class Memo < ApplicationRecord
-  belongs_to :user
-  has_many :memos
-end"
-          />
-        </div>
-        <div class="col-6">
+      <div class="abs-layer__box d-md-flex d-block">
+        <div class="col-md-6 col-12">
           <h3 class="abs-layer__box-title">Slim Model</h3>
           <div class="abs-layer__box-desc">
             <p>
@@ -60,11 +51,21 @@ end"
             </p>
           </div>
         </div>
+
+        <div class="col-md-6 col-12">
+          <highlightjs
+            language="ruby"
+            code="
+class User < ApplicationRecord
+  has_many :user_logins
+end"
+          />
+        </div>
       </div>
 
       <!-- Redefining Validation  -->
-      <div class="row abs-layer__box">
-        <div class="col-6">
+      <div class="d-md-flex d-block abs-layer__box">
+        <div class="col-md-6 col-12">
           <h3 class="abs-layer__box-title">Redefining Validation</h3>
           <div class="abs-layer__box-desc">
             <p>
@@ -78,44 +79,21 @@ end"
             </p>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6 col-12">
           <highlightjs
             language="ruby"
             code="
-class AlbumForm < Reform::Form
-  feature Reform::Form::Dry
-
-  property :name
-
-  validation do
-    params do
-      required(:name).filled
-    end
-  end
+class Login::CreateForm < ApplicationForm
+  validates :email, presence: true
+  validates :password, presence: true
 end"
           />
         </div>
       </div>
 
       <!-- Operation -->
-      <div class="row abs-layer__box">
-        <div class="col-6">
-          <highlightjs
-            class="w-90p"
-            language="ruby"
-            code="
-module Memo::Operation
-  class Create < Trailblazer::Operation
-    step :validate
-    step :save
-    left :handle_errors
-    step :notify
-    # ...
-  end
-end"
-          />
-        </div>
-        <div class="col-6">
+      <div class="d-md-flex d-block abs-layer__box">
+        <div class="col-md-6 col-12">
           <h3 class="abs-layer__box-title">Flow Control Business Logic</h3>
           <div class="abs-layer__box-desc">
             <p>Operations in HMVC architectures serve as orchestrators.</p>
@@ -124,6 +102,30 @@ end"
               streamlines development, promoting code reusability and maintainability.
             </p>
           </div>
+        </div>
+        <div class="col-md-6 col-12">
+          <highlightjs
+            language="ruby"
+            code="
+class Login::CreateOperation < ApplicationOperation
+  attr_reader :user
+
+  def call
+    step_load_form { return}
+    step_login
+  end
+
+  private
+
+  def step_load_form
+    # Logic validate form here
+  end
+
+  def step_login
+    # Logic bussiness here
+  end
+end"
+          />
         </div>
       </div>
     </div>
