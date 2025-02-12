@@ -83,7 +83,7 @@
     font-family: var(--font-heading);
     color: var(--c-gray-900);
     font-weight: 500;
-    font-size: 2.3rem;
+    font-size: clamp(1.8rem, 3vw, 2.3rem);
     padding: 2.5rem 0 1rem;
     letter-spacing: 1.3px;
   }
@@ -103,7 +103,7 @@
       font-family: var(--font-heading);
       color: var(--c-gray-900);
       font-weight: 500;
-      font-size: 1.2rem;
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
     }
 
     &-position {
@@ -118,7 +118,7 @@
       z-index: 2;
       color: var(--c-gray-900);
       font-weight: 300;
-      font-size: 1.4rem;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
       border-left: 10px solid #e5e5e5;
       margin-top: 1.3rem;
       margin-left: -15px;

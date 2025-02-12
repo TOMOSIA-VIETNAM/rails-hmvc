@@ -20,14 +20,13 @@
 import EnhancedSliderComponent from '@/components/home_page/EnhancedSliderComponent.vue';
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .knowledge-arch {
   &__heading {
     font-family: var(--font-heading);
     color: var(--c-gray-900);
     font-weight: 500;
-    font-size: 2.3rem;
-    padding: 1rem 0 3rem;
+    font-size: clamp(1.8rem, 3vw, 2.3rem);
     letter-spacing: 1.3px;
   }
 }

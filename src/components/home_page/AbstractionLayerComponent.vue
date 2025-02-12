@@ -145,18 +145,14 @@ end"
   &__title {
     font-family: var(--font-heading);
     font-weight: 500;
-    font-size: 3.75rem;
-    color: #fff;
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
     margin-bottom: 1.875rem;
-    letter-spacing: 1px;
   }
 
   &__desc {
     font-family: var(--font-sub-heading);
     font-weight: 200;
-    font-size: 1.3rem;
-    color: #fff;
-    word-spacing: 2px;
+    font-size: clamp(1rem, 2vw, 1.3rem);
   }
 
   &__box {
@@ -164,15 +160,13 @@ end"
 
     &-title {
       font-weight: 400;
-      font-size: 1.5rem;
-      color: #fff;
-      margin-bottom: 1.875rem;
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
     }
 
     &-desc {
+      font-family: var(--font-sub-heading);
       font-weight: 300;
-      line-height: 1.75em;
-      width: 90%;
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
     }
   }
 }
