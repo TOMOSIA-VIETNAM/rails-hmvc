@@ -111,7 +111,7 @@ class Login::CreateOperation < ApplicationOperation
   attr_reader :user
 
   def call
-    step_load_form { return}
+    step_load_form { return }
     step_login
   end
 

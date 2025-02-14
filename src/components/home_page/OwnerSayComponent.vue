@@ -4,8 +4,8 @@
       <h3 class="owner-say__title">What owner say ...</h3>
 
       <div class="row owner-say__feedback">
-        <div class="col-9">
-          <div class="row align-items-center">
+        <div class="col-12 col-md-9">
+          <div class="row align-items-center ms-3 ms-md-0">
             <div class="col-auto ps-0">
               <img
                 class="owner-say__feedback-photo"
@@ -14,7 +14,7 @@
                 loading="lazy"
               />
             </div>
-            <div class="col">
+            <div class="col z-1">
               <h4 class="owner-say__feedback-owner">Mr. Anh Nguyen</h4>
               <span class="owner-say__feedback-position"
                 >CTO, Founder HMVC, Senior Software Developer</span
@@ -31,8 +31,8 @@
       </div>
 
       <div class="row owner-say__feedback">
-        <div class="col-9">
-          <div class="row align-items-center">
+        <div class="col-12 col-md-9">
+          <div class="row align-items-center ms-3 ms-md-0">
             <div class="col-auto ps-0">
               <img
                 class="owner-say__feedback-photo"
@@ -41,7 +41,7 @@
                 loading="lazy"
               />
             </div>
-            <div class="col">
+            <div class="col z-1">
               <h4 class="owner-say__feedback-owner">Mr. Minh Tang</h4>
               <span class="owner-say__feedback-position"
                 >Leader, Maintainer HMVC, Senior Software Developer</span
