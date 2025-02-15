@@ -167,6 +167,7 @@ end"
       font-family: var(--font-sub-heading);
       font-weight: 300;
       font-size: clamp(0.875rem, 1.5vw, 1rem);
+      padding-right: 3rem;
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <section class="section bg-gray--200 reason-refactor">
     <div class="container">
-      <div class="row why-choose">
+      <div class="row why-choose d-none d-md-block">
         <div class="col-12 col-md-3">
           <div class="why-choose__title">
             Why <br />
