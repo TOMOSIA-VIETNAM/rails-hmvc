@@ -1,0 +1,18 @@
+$color-border-image: rgba(39, 40, 44, 0.2);
+
+.image-box {
+  position: relative;
+  vertical-align: top;
+  display: inline-block;
+  overflow: hidden;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid $color-border-image;
+  box-shadow: 0 0 15px $color-border-image;
+
+  img {
+    vertical-align: top;
+    height: auto;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,5 @@
+[context.production]
+  [[headers]]
+    for = "/*"
+    [headers.values]
+      Basic-Auth = "rails:Abc123@@@"
