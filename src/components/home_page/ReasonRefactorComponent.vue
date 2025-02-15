@@ -166,7 +166,9 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
     height: 0;
     overflow: hidden;
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    // box-shadow: 0px 0px 67px 0px rgba(0,0,0,0.35);
+    // box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 30px 12px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
 
     .responsive-iframe {
       position: absolute;

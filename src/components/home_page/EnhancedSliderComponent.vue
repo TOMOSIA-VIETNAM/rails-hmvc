@@ -141,8 +141,8 @@ watch(isInViewport, (newValue) => {
     position: relative;
     padding: 20px;
     background-color: #f8f9fa;
-    border-radius: 16px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
 
     img {
       width: 100%;
@@ -154,7 +154,7 @@ watch(isInViewport, (newValue) => {
       opacity: 0;
       transition: all 0.75s ease-in-out;
       padding: 20px;
-      border-radius: 12px;
+      border-radius: 1.5rem;
       transform: scale(0.95);
 
       &.active {

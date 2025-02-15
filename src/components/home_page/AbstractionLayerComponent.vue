@@ -138,6 +138,10 @@ end"
 .abs-layer {
   color: #fff;
 
+  pre {
+    border-radius: 0.35rem;
+  }
+
   &__heading {
     margin-bottom: 5rem;
   }
