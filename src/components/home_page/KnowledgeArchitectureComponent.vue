@@ -1,14 +1,18 @@
 <template>
   <section class="section knowledge-arch bg-gray--100">
-    <div class="container">
+    <div class="container mb-4">
       <div class="row">
         <div class="col-12">
           <div class="knowledge-arch__title-wrapper">
             <h2 class="knowledge-arch__heading">
-              Knowledge architecture
+              Architectural Mastery
               <span class="knowledge-arch__heading-highlight"></span>
             </h2>
-            <p class="knowledge-arch__subheading">Evolution, not Revolution</p>
+            <p class="knowledge-arch__subheading">
+              MVC: The Next Generation
+              <br/>
+              <span class="knowledge-arch__subheading-small">Evolution, not Revolution - Because we don't break things, we make them better!</span>
+            </p>
           </div>
         </div>
       </div>
@@ -58,11 +62,10 @@ import EnhancedSliderComponent from '@/components/home_page/EnhancedSliderCompon
 
   &__subheading {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 300;
     letter-spacing: 2px;
     color: var(--c-primary);
     margin: 0;
-    text-transform: uppercase;
   }
 }
 </style>
