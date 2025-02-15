@@ -25,6 +25,44 @@
 
 <script setup>
 import HeaderHeroSvg from './icons/MultiLayerIcon.vue'
+import { onMounted } from 'vue'
+import { gsap } from 'gsap'
+
+onMounted(() => {
+  // Animation timeline
+  const tl = gsap.timeline({
+    defaults: { duration: 1, ease: 'power3.out' }
+  })
+
+  // Hero background animation
+  tl.from('.header-hero__background svg', {
+    scale: 0.8,
+    opacity: 0,
+    duration: 1.5
+  })
+
+  // Content animations
+  tl.from('.hero-title', {
+    y: 50,
+    opacity: 0
+  }, '-=1')
+
+  tl.from('.hero-subtitle', {
+    y: 30,
+    opacity: 0
+  }, '-=0.8')
+
+  tl.from('.hero-control', {
+    y: 20,
+    opacity: 0
+  }, '-=0.6')
+
+  tl.from('.hero-icon', {
+    x: 30,
+    opacity: 0,
+    rotate: 360
+  }, '-=0.8')
+})
 </script>
 
 <style lang="scss" scoped>
@@ -32,6 +70,8 @@ import HeaderHeroSvg from './icons/MultiLayerIcon.vue'
   min-height: 570px;
   padding-top: 144px;
   padding-bottom: 96px;
+  position: relative;
+  overflow: hidden;
 
   &__background {
     position: absolute;
