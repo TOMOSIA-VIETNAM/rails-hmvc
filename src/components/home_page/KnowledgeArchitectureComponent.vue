@@ -8,7 +8,7 @@
               Knowledge architecture
               <span class="knowledge-arch__heading-highlight"></span>
             </h2>
-            <p class="knowledge-arch__subheading">PROJECT STRUCTURE</p>
+            <p class="knowledge-arch__subheading">Evolution, not Revolution</p>
           </div>
         </div>
       </div>
