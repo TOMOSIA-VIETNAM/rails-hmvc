@@ -20,7 +20,7 @@
       </div>
 
       <div class="reason-refactor__content d-flex flex-column flex-md-row">
-        <div class="reason-refactor__blocks col-12 col-md-3 pe-md-4">
+        <div class="reason-refactor__blocks col-12 col-md-4 pe-md-4">
           <div class="reason-refactor__block">
             <h3 class="reason-refactor__block-title">Missing abstractions</h3>
             <p class="reason-refactor__block-desc">
