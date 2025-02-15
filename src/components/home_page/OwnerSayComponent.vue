@@ -23,7 +23,7 @@
           </div>
 
           <blockquote class="ms-2 owner-say__feedback-quote">
-            <i>They said 'MVC is enough' - I said 'Hold my coffee!'</i> ☕
+            <i>They said 'MVC is enough' - I said 'Hold my coffee!'☕ </i>
             <p class="pt-1">
             I created HMVC with a vision to solve the inherent complexity issues in large-scale applications.
             By introducing a hierarchical structure
@@ -55,7 +55,7 @@
           </div>
 
           <blockquote class="ms-2 owner-say__feedback-quote">
-            <i>When I first saw HMVC, it was like discovering a secret level in a video game</i> 🎮
+            <i>When I first saw HMVC, it was like discovering a secret level in a video game 🎮</i>
             <p class="pt-1">
             Taking the foundational principles, we've evolved it into a powerful, modern architecture that addresses today's
             development challenges. Our focus has been on enhancing developer experience through clear abstractions
@@ -68,6 +68,118 @@
     </div>
   </section>
 </template>
+
+<script setup>
+import { onMounted } from 'vue'
+import { useScrollAnimation } from '@/composables/useScrollAnimation'
+import gsap from 'gsap'
+
+onMounted(() => {
+  // Animate title
+  const titleTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.owner-say__title',
+      start: 'top 85%'
+    }
+  })
+
+  titleTl.from('.owner-say__title', {
+    opacity: 0,
+    y: 30,
+    duration: 0.8,
+    ease: 'power2.out'
+  })
+
+  // Animate each feedback section
+  const feedbacks = document.querySelectorAll('.owner-say__feedback')
+  feedbacks.forEach((feedback, index) => {
+    const feedbackTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: feedback,
+        start: 'top 75%'
+      }
+    })
+
+    // Photo and info animation
+    feedbackTl.from(feedback.querySelector('.owner-say__feedback-photo'), {
+      opacity: 0,
+      scale: 0.5,
+      duration: 0.8,
+      ease: 'back.out(1.7)'
+    })
+    .from([
+      feedback.querySelector('.owner-say__feedback-owner'),
+      feedback.querySelector('.owner-say__feedback-position')
+    ], {
+      opacity: 0,
+      x: -30,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: 'power2.out'
+    }, '-=0.4')
+
+    // Quote animation
+    const quote = feedback.querySelector('.owner-say__feedback-quote')
+    const quoteText = quote.querySelector('i')
+    const quoteParagraph = quote.querySelector('p')
+
+    feedbackTl.from(quote, {
+      opacity: 0,
+      x: -20,
+      duration: 0.8,
+      ease: 'power2.out'
+    }, '-=0.2')
+    .from(quoteText, {
+      opacity: 0,
+      y: 20,
+      duration: 0.6,
+      ease: 'power2.out'
+    }, '-=0.4')
+    .from(quoteParagraph, {
+      opacity: 0,
+      y: 20,
+      duration: 0.6,
+      ease: 'power2.out'
+    }, '-=0.3')
+
+    // Add hover effect to the entire feedback section
+    feedback.addEventListener('mouseenter', () => {
+      gsap.to(feedback, {
+        scale: 1.02,
+        duration: 0.3,
+        ease: 'power2.out'
+      })
+      gsap.to(feedback.querySelector('.owner-say__feedback-photo'), {
+        scale: 1.1,
+        duration: 0.3,
+        ease: 'power2.out'
+      })
+    })
+
+    feedback.addEventListener('mouseleave', () => {
+      gsap.to(feedback, {
+        scale: 1,
+        duration: 0.3,
+        ease: 'power2.out'
+      })
+      gsap.to(feedback.querySelector('.owner-say__feedback-photo'), {
+        scale: 1,
+        duration: 0.3,
+        ease: 'power2.out'
+      })
+    })
+  })
+
+  // Add floating animation to background
+  gsap.to('.owner-say::before', {
+    rotation: '+=5',
+    duration: 10,
+    ease: 'none',
+    repeat: -1,
+    yoyo: true
+  })
+})
+</script>
 
 <style lang="scss" scoped>
 .owner-say {
@@ -84,8 +196,9 @@
     height: 1220px;
     background: transparent url('@/assets/images/spiral-layer.svg') no-repeat;
     transform: rotate(-30deg);
-    -moz-transform: rotate(-30deg);
-    -ms-transform: rotate(-30deg);
+    transform-origin: center;
+    will-change: transform;
+    z-index: 0;
   }
 
   &__title {
@@ -95,10 +208,18 @@
     font-size: clamp(1.8rem, 3vw, 2.3rem);
     padding: 2.5rem 0 1rem;
     letter-spacing: 1.3px;
+    position: relative;
+    z-index: 1;
+    will-change: transform, opacity;
   }
 
   &__feedback {
     padding: 1.75rem 0;
+    position: relative;
+    z-index: 1;
+    transform-origin: center;
+    will-change: transform;
+    transition: transform 0.3s ease;
 
     &-photo {
       width: 72px;
@@ -106,6 +227,10 @@
       border-radius: 50%;
       object-fit: cover;
       margin-right: 0.2rem;
+      transform-origin: center;
+      will-change: transform;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     &-owner {
@@ -113,6 +238,8 @@
       color: var(--c-gray-900);
       font-weight: 500;
       font-size: clamp(1rem, 1.5vw, 1.2rem);
+      margin-bottom: 0.2rem;
+      will-change: transform, opacity;
     }
 
     &-position {
@@ -120,6 +247,7 @@
       font-size: 1rem;
       font-weight: 300;
       color: rgba(25, 25, 28, 0.6);
+      will-change: transform, opacity;
     }
 
     &-quote {
@@ -132,6 +260,18 @@
       margin-top: 1.3rem;
       margin-left: -15px;
       padding-left: 1.2rem;
+      will-change: transform, opacity;
+
+      i {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--c-primary);
+        will-change: transform, opacity;
+      }
+
+      p {
+        will-change: transform, opacity;
+      }
     }
   }
 }

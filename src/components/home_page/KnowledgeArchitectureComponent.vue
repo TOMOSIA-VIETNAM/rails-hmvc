@@ -30,11 +30,15 @@ import { onMounted } from 'vue'
 import { useScrollAnimation } from '@/composables/useScrollAnimation'
 
 onMounted(() => {
-  const { fadeInUp, fadeIn } = useScrollAnimation()
+  const { revealTitle, splitTextReveal, fadeInUp } = useScrollAnimation()
 
-  // Animate main sections
-  fadeInUp('.knowledge-arch__heading')
-  fadeIn('.knowledge-arch__subheading', 0.2)
+  // Animate heading with highlight effect
+  revealTitle('.knowledge-arch__heading', '.knowledge-arch__heading-highlight')
+
+  // Animate subheading with split text effect
+  splitTextReveal('.knowledge-arch__subheading')
+
+  // Animate slider
   fadeInUp('.enhanced-slider')
 })
 </script>
@@ -58,6 +62,7 @@ onMounted(() => {
     display: inline-block;
     white-space: nowrap;
     line-height: 1.2;
+    will-change: transform, opacity; // Optimize performance
 
     &-highlight {
       position: absolute;
@@ -66,8 +71,8 @@ onMounted(() => {
       right: -0.5em;
       height: 0.3em;
       background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-      opacity: 0.2;
-      z-index: 0;
+      transform-origin: left;
+      will-change: transform, opacity; // Optimize performance
     }
   }
 
@@ -77,12 +82,15 @@ onMounted(() => {
     letter-spacing: 2px;
     color: var(--c-primary);
     margin: 0;
+    will-change: transform, opacity; // Optimize performance
+
+    &-small {
+      display: inline-block; // Help with animation
+    }
   }
 
-  &__heading,
-  &__subheading,
   .enhanced-slider {
-    // Remove all opacity: 0 from here
+    will-change: transform, opacity; // Optimize performance
   }
 }
 
