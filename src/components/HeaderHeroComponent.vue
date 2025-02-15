@@ -6,7 +6,7 @@
     <div class="header-hero__content container">
       <div class="row">
         <div class="col-10">
-          <h1 class="hero-title">High level MVC</h1>
+          <h1 class="hero-title">High Level MVC</h1>
           <h1 class="hero-subtitle">Simplify business logic and rapid application development</h1>
           <div class="hero-control row align-items-center">
             <div class="d-flex flex-align-center hero-control__btn">
@@ -59,6 +59,7 @@ import HeaderHeroSvg from './icons/MultiLayerIcon.vue'
       letter-spacing: -0.75px;
       font-size: clamp(3rem, 5vw, 3.6rem);
       color: var(--c-gray-900);
+      text-transform: capitalize;
     }
 
     .hero-subtitle {

@@ -2,11 +2,11 @@
   <section class="section bg-gray--900 abs-layer">
     <div class="container">
       <div class="abs-layer__heading">
-        <h2 class="abs-layer__title">Abstraction layers</h2>
+        <h2 class="abs-layer__title">Abstraction Layers</h2>
         <p class="abs-layer__desc">
           <span class="text--green-400">CORE MISSION: ENSURE SOFTWARE LONGEVITY</span>
-          <br />We achieve this by providing a diverse range of abstraction layers,
-          <br />transitioning code from traditional "MVC" to modern layers and objects.
+          <br />Achieve sustainable and maintainable software architecture
+          <br />through strategic implementation of modern abstraction layers.
         </p>
       </div>
 
@@ -15,14 +15,15 @@
         <div class="col-md-6 col-12">
           <h3 class="abs-layer__box-title">Lean Controller</h3>
           <div class="abs-layer__box-desc">
-            <p>Move your business logic out of controllers.</p>
+            <p>Streamline your controllers by removing business logic entirely.</p>
             <p>
-              Handle navigation and data forwarding, without executing business logic. <br />
-              It extracts data from requests and forwards it to Operations.
+              Modern controllers serve as traffic directors - they handle HTTP requests,
+              manage routing, and delegate processing to specialized Operations. This separation
+              ensures clean, maintainable code and clear responsibility boundaries.
             </p>
           </div>
         </div>
-        <div class="col-md-6 col-12">
+        <div class="col-md-6 col-12 mt-3">
           <highlightjs
             language="ruby"
             code="
@@ -42,17 +43,18 @@ end"
       <!-- Slim Model -->
       <div class="abs-layer__box d-md-flex d-block">
         <div class="col-md-6 col-12">
-          <h3 class="abs-layer__box-title">Slim Model</h3>
+          <h3 class="abs-layer__box-title">Domain Model Excellence</h3>
           <div class="abs-layer__box-desc">
             <p>
-              Utilize it solely for declaring relationships and tasks associated with database
-              querying. By maintaining this separation, models become lightweight and easier to
-              understand, facilitating scalability and collaboration within your project
+              Transform your models into focused domain entities that excel at their core purpose:
+              managing data relationships and database interactions. By removing business logic
+              and validation concerns, models become more maintainable and scalable. This approach
+              promotes better code organization and enhances team collaboration.
             </p>
           </div>
         </div>
 
-        <div class="col-md-6 col-12">
+        <div class="col-md-6 col-12 mt-3">
           <highlightjs
             language="ruby"
             code="
@@ -63,23 +65,23 @@ end"
         </div>
       </div>
 
-      <!-- Redefining Validation  -->
+      <!-- Validation That Makes Sense  -->
       <div class="d-md-flex d-block abs-layer__box">
         <div class="col-md-6 col-12">
-          <h3 class="abs-layer__box-title">Redefining Validation</h3>
+          <h3 class="abs-layer__box-title">Intelligent Validation Layer</h3>
           <div class="abs-layer__box-desc">
             <p>
-              Validations are now decoupled from model classes and instead reside within forms.
-              After data is coerced and validated, it is ready for writing into the model.
+              Embrace a more logical approach to data validation by moving it to dedicated form objects.
+              This separation creates a clear boundary between data validation and business logic.
             </p>
-
             <p>
-              This practice ensures data validity prior to transmission to Operations, effectively
-              separating validation logic from Controllers and Operations.
+              Form objects handle data coercion, validation rules, and ensure data integrity before
+              any business operations begin. This proactive validation strategy prevents invalid data
+              from reaching your core business logic, reducing errors and improving system reliability.
             </p>
           </div>
         </div>
-        <div class="col-md-6 col-12">
+        <div class="col-md-6 col-12 mt-3">
           <highlightjs
             language="ruby"
             code="
@@ -94,16 +96,22 @@ end"
       <!-- Operation -->
       <div class="d-md-flex d-block abs-layer__box">
         <div class="col-md-6 col-12">
-          <h3 class="abs-layer__box-title">Flow Control Business Logic</h3>
+          <h3 class="abs-layer__box-title">Orchestrated Business Logic</h3>
           <div class="abs-layer__box-desc">
-            <p>Operations in HMVC architectures serve as orchestrators.</p>
             <p>
-              These operations define the sequence of steps in application logic. This approach
-              streamlines development, promoting code reusability and maintainability.
+              Operations act as conductors in your application's symphony, orchestrating complex
+              business processes with clarity and precision.
+            </p>
+            <p>
+              Each operation encapsulates a specific business workflow, breaking it down into
+              clear, sequential steps. This structured approach enhances code readability,
+              facilitates testing, and makes complex business processes more manageable.
+              Operations promote code reuse and make your application's business logic
+              more maintainable and scalable.
             </p>
           </div>
         </div>
-        <div class="col-md-6 col-12">
+        <div class="col-md-6 col-12 mt-3">
           <highlightjs
             language="ruby"
             code="

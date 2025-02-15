@@ -43,13 +43,13 @@ const slides = [
   {
     id: 1,
     title: 'MVC vs HMVC',
-    description: 'We provide unified support for all major version control systems, including Git, SVN, Mercurial, and many others.',
+    description: 'Visualizing the relationship between codebase size and maintenance complexity. While traditional Rails shows exponential pain growth as projects scale, HMVC maintains linear complexity through structured organization and clear boundaries. This architectural approach ensures sustainable development for both small and large applications.',
     imageSrc: '/src/assets/images/mvc-vs-hmvc.png'
   },
   {
     id: 2,
     title: 'Overview Layer',
-    description: 'Context-sensitive code completion helps you write SQL code faster. DataGrip is aware of the table structure, foreign keys, and even database objects created in the code you\'re editing.',
+    description: 'A strategic layered architecture that streamlines business flow from request to response. Each layer has a distinct responsibility: from handling requests, through authorization and validation, to business logic execution and data persistence. This separation ensures clean testing, maintainable code, and prevents cross-layer bugs while keeping business logic focused and pure.',
     imageSrc: '/src/assets/images/overview-layer.png'
   },
   {
@@ -61,7 +61,7 @@ const slides = [
   {
     id: 4,
     title: 'Structure Project',
-    description: 'The query history feature preserves all queries in a log file, and the tool supports parameterized SQL queries with customizable patterns and SQL dialect options.',
+    description: 'HMVC organizes your project into clear, modular components. The core structure includes Controllers for routing, Operations for business workflows, Forms for validation, Models for data management, and Policies for authorization. This modular approach enables parallel development, easier testing, and maintainable code organization that scales with your project growth.',
     imageSrc: '/src/assets/images/structure-project.png'
   }
 ];

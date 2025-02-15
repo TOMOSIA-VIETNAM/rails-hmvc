@@ -6,9 +6,11 @@
       </div>
 
       <div>
-        <h2 class="banner-knowledge__heading">Just master Rails</h2>
+        <h2 class="banner-knowledge__heading">Rails Superhero Mode: Activated! 🦸‍♂️</h2>
         <p class="banner-knowledge__desc">
-          No need for other frameworks. Versatile for any project.
+          Why juggle multiple frameworks when you can be a Rails ninja? 🥷
+          <br />
+          <span class="text-highlight">One framework to rule them all, one HMVC to find them</span>
         </p>
       </div>
 

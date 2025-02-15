@@ -20,26 +20,23 @@
       </div>
 
       <div class="reason-refactor__content d-flex flex-column flex-md-row">
-        <div class="reason-refactor__blocks col-12 col-md-3 pe-md-4">
+        <div class="reason-refactor__blocks col-12 col-md-4 pe-md-4">
           <div class="reason-refactor__block">
             <h3 class="reason-refactor__block-title">Missing abstractions</h3>
             <p class="reason-refactor__block-desc">
-              Web frameworks excel in routing and rendering but often lack sufficient abstractions
-              for organizing business logic, resulting in complex, hard-to-maintain code.
+              Web frameworks excel at routing and rendering but often fall short in structuring business logic. Without clear abstractions, code becomes tangled, complex, and difficult to maintain.
             </p>
           </div>
           <div class="reason-refactor__block">
-            <h3 class="reason-refactor__block-title">Our toolbox</h3>
+            <h3 class="reason-refactor__block-title">Our Solution</h3>
             <p class="reason-refactor__block-desc">
-              HMVC introduces the "operation" abstraction, breaking code into manageable steps to
-              enhance logic structure and flow control.
+              HMVC introduces the "operation" abstraction, breaking logic into well-defined steps. This improves flow control, enhances maintainability, and makes complex processes more manageable.
             </p>
           </div>
           <div class="reason-refactor__block">
-            <h3 class="reason-refactor__block-title">Bullet-proof conventions</h3>
+            <h3 class="reason-refactor__block-title">Rock-Solid Conventions</h3>
             <p class="reason-refactor__block-desc">
-              HMVC simplifies error handling with the Railway pattern, reducing conditionals and
-              enhancing code reusability through inheritance and composition.
+              With the Railway pattern, HMVC streamlines error handling, minimizes excessive conditionals, and boosts code reusability through inheritance and composition—resulting in cleaner, more efficient development.
             </p>
           </div>
           <div class="reason-refactor__block d-none d-md-block">
