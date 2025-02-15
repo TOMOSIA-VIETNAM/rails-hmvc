@@ -36,7 +36,7 @@ onMounted(() => {
 
   // Hero background animation
   tl.from('.header-hero__background svg', {
-    scale: 0.8,
+    scale: 0.95,
     opacity: 0,
     duration: 1.5
   })
@@ -62,6 +62,15 @@ onMounted(() => {
     opacity: 0,
     rotate: 360
   }, '-=0.8')
+
+  // Gentle up and down animation for background
+  gsap.to('.header-hero__background svg', {
+    y: '20',
+    duration: 4,
+    ease: 'sine.inOut',
+    repeat: -1,
+    yoyo: true
+  })
 })
 </script>
 
