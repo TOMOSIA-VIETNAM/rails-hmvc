@@ -4,8 +4,8 @@
       <h3 class="owner-say__title">What owner say ...</h3>
 
       <div class="row owner-say__feedback">
-        <div class="col-9">
-          <div class="row align-items-center">
+        <div class="col-12 col-md-9">
+          <div class="row align-items-center ms-3 ms-md-0">
             <div class="col-auto ps-0">
               <img
                 class="owner-say__feedback-photo"
@@ -14,7 +14,7 @@
                 loading="lazy"
               />
             </div>
-            <div class="col">
+            <div class="col z-1">
               <h4 class="owner-say__feedback-owner">Mr. Anh Nguyen</h4>
               <span class="owner-say__feedback-position"
                 >CTO, Founder HMVC, Senior Software Developer</span
@@ -31,8 +31,8 @@
       </div>
 
       <div class="row owner-say__feedback">
-        <div class="col-9">
-          <div class="row align-items-center">
+        <div class="col-12 col-md-9">
+          <div class="row align-items-center ms-3 ms-md-0">
             <div class="col-auto ps-0">
               <img
                 class="owner-say__feedback-photo"
@@ -41,7 +41,7 @@
                 loading="lazy"
               />
             </div>
-            <div class="col">
+            <div class="col z-1">
               <h4 class="owner-say__feedback-owner">Mr. Minh Tang</h4>
               <span class="owner-say__feedback-position"
                 >Leader, Maintainer HMVC, Senior Software Developer</span
@@ -83,7 +83,7 @@
     font-family: var(--font-heading);
     color: var(--c-gray-900);
     font-weight: 500;
-    font-size: 2.3rem;
+    font-size: clamp(1.8rem, 3vw, 2.3rem);
     padding: 2.5rem 0 1rem;
     letter-spacing: 1.3px;
   }
@@ -103,7 +103,7 @@
       font-family: var(--font-heading);
       color: var(--c-gray-900);
       font-weight: 500;
-      font-size: 1.2rem;
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
     }
 
     &-position {
@@ -118,7 +118,7 @@
       z-index: 2;
       color: var(--c-gray-900);
       font-weight: 300;
-      font-size: 1.4rem;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
       border-left: 10px solid #e5e5e5;
       margin-top: 1.3rem;
       margin-left: -15px;

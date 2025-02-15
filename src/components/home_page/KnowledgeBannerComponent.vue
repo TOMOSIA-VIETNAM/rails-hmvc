@@ -45,7 +45,7 @@ import HeaderHeroSvg from '../icons/MultiLayerIcon.vue'
   &__heading {
     font-family: var(--font-sub-heading);
     font-weight: 100;
-    font-size: 2.6875rem;
+    font-size: clamp(2rem, 4vw, 2.6875rem);
     color: #fff;
     margin-bottom: 1.875rem;
   }
@@ -53,7 +53,7 @@ import HeaderHeroSvg from '../icons/MultiLayerIcon.vue'
   &__desc {
     font-family: var(--font-sub-heading);
     font-weight: 100;
-    font-size: 1.4rem;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
     color: #fff;
   }
 
@@ -75,6 +75,16 @@ import HeaderHeroSvg from '../icons/MultiLayerIcon.vue'
         color: #fff;
         border-color: #414141;
         background-color: #414141;
+      }
+    }
+
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      a:not(:last-child) {
+        margin-right: 0;
       }
     }
   }

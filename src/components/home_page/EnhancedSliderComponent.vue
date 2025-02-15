@@ -139,6 +139,10 @@ watch(isInViewport, (newValue) => {
     flex: 0 0 60%;
     overflow: hidden;
     position: relative;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
 
     img {
       width: 100%;
@@ -148,10 +152,14 @@ watch(isInViewport, (newValue) => {
       top: 0;
       left: 0;
       opacity: 0;
-      transition: opacity 0.75s ease-in-out;
+      transition: all 0.75s ease-in-out;
+      padding: 20px;
+      border-radius: 1.5rem;
+      transform: scale(0.95);
 
       &.active {
         opacity: 1;
+        transform: scale(1);
       }
     }
   }
@@ -226,7 +234,9 @@ watch(isInViewport, (newValue) => {
     }
 
     &__image-section {
-      height: 300px; // Adjust as needed
+      height: 300px;
+      margin: 15px;
+      padding: 15px;
     }
 
     &__content-section {
