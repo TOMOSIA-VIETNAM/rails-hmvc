@@ -37,7 +37,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch, computed } from 'vue';
+import { ref, onMounted, onUnmounted, watch, computed } from 'vue'
+import { useScrollAnimation } from '@/composables/useScrollAnimation'
 
 const slides = [
   {
@@ -64,68 +65,84 @@ const slides = [
     description: 'HMVC organizes your project into clear, modular components. The core structure includes Controllers for routing, Operations for business workflows, Forms for validation, Models for data management, and Policies for authorization. This modular approach enables parallel development, easier testing, and maintainable code organization that scales with your project growth.',
     imageSrc: '/src/assets/images/structure-project.png'
   }
-];
+]
 
-const currentIndex = ref(0);
-const progress = ref(0);
-const autoplayInterval = ref(null);
-const sliderRef = ref(null);
-const isInViewport = ref(false);
-const isPaused = ref(false);
-const hoveredIndex = ref(null);
+const currentIndex = ref(0)
+const progress = ref(0)
+const autoplayInterval = ref(null)
+const sliderRef = ref(null)
+const isInViewport = ref(false)
+const hoveredIndex = ref(null)
+let sliderAnimation = null
 
-const currentSlide = computed(() => slides[currentIndex.value]);
+const currentSlide = computed(() => slides[currentIndex.value])
 
 const setCurrentSlide = (index) => {
-  currentIndex.value = index;
-  resetProgress();
-};
+  currentIndex.value = index
+  resetProgress()
+}
 
 const nextSlide = () => {
-  currentIndex.value = (currentIndex.value + 1) % slides.length;
-  resetProgress();
-};
+  currentIndex.value = (currentIndex.value + 1) % slides.length
+  resetProgress()
+
+  // Animate image transition
+  const currentImage = document.querySelector('.enhanced-slider__image-section img.active')
+  if (currentImage && sliderAnimation) {
+    sliderAnimation.animateImageChange(currentImage)
+  }
+}
 
 const resetProgress = () => {
-  progress.value = 0;
-};
+  progress.value = 0
+}
 
 const startAutoplay = () => {
-  if (autoplayInterval.value) clearInterval(autoplayInterval.value);
+  if (autoplayInterval.value) clearInterval(autoplayInterval.value)
   autoplayInterval.value = setInterval(() => {
     if (hoveredIndex.value !== currentIndex.value) {
-      progress.value += 1;
+      progress.value += 1
       if (progress.value >= 100) {
-        nextSlide();
+        nextSlide()
       }
     }
-  }, 100); // Update every 100ms for smooth progress
-};
+  }, 100)
+}
 
 const checkInViewport = () => {
-  if (!sliderRef.value) return;
-  const rect = sliderRef.value.getBoundingClientRect();
-  const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-  isInViewport.value = rect.top <= viewportHeight / 2 && rect.bottom >= viewportHeight / 2;
-};
+  if (!sliderRef.value) return
+  const rect = sliderRef.value.getBoundingClientRect()
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight
+  isInViewport.value = rect.top <= viewportHeight / 2 && rect.bottom >= viewportHeight / 2
+}
 
 onMounted(() => {
-  window.addEventListener('scroll', checkInViewport);
-  checkInViewport();
-});
+  const { animateSlider } = useScrollAnimation()
+
+  // Initialize slider animations
+  sliderAnimation = animateSlider('.enhanced-slider', {
+    imageScale: 0.95,
+    imageDuration: 0.75,
+    contentDelay: 0.2,
+    contentStagger: 0.1
+  })
+
+  window.addEventListener('scroll', checkInViewport)
+  checkInViewport()
+})
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', checkInViewport);
-  if (autoplayInterval.value) clearInterval(autoplayInterval.value);
-});
+  window.removeEventListener('scroll', checkInViewport)
+  if (autoplayInterval.value) clearInterval(autoplayInterval.value)
+})
 
 watch(isInViewport, (newValue) => {
   if (newValue) {
-    startAutoplay();
+    startAutoplay()
   } else {
-    if (autoplayInterval.value) clearInterval(autoplayInterval.value);
+    if (autoplayInterval.value) clearInterval(autoplayInterval.value)
   }
-});
+})
 </script>
 
 <style lang="scss" scoped>
@@ -279,3 +296,4 @@ watch(isInViewport, (newValue) => {
   opacity: 1;
 }
 </style>
+

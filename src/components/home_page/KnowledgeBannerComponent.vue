@@ -24,6 +24,48 @@
 
 <script setup>
 import HeaderHeroSvg from '../icons/MultiLayerIcon.vue'
+import { onMounted } from 'vue'
+import { useScrollAnimation } from '@/composables/useScrollAnimation'
+
+onMounted(() => {
+  const { fadeInUp, staggerChildren, parallaxBackground } = useScrollAnimation()
+
+  // Animate background SVG with scale effect
+  fadeInUp('.banner-knowledge__background svg', {
+    scale: 0.98,
+    duration: 1.2,
+    ease: 'power2.out'
+  })
+
+  // Animate heading and description
+  fadeInUp('.banner-knowledge__heading', {
+    delay: 0.3
+  })
+
+  fadeInUp('.banner-knowledge__desc', {
+    delay: 0.6
+  })
+
+  // Animate buttons with stagger effect after titles
+  staggerChildren('.banner-knowledge__buttons', 'a', {
+    duration: 0.6,
+    stagger: 0.2,
+    y: 30,
+    delay: 0.6, // Delay after description animation completes
+    ease: 'back.out(1.7)'
+  })
+
+  // Add continuous floating parallax effect to background
+  parallaxBackground('.banner-knowledge__background svg', {
+    x: 15,
+    y: 20,
+    duration: 4,
+    ease: 'sine.inOut',
+    repeat: -1,
+    yoyo: true,
+    scrub: false
+  })
+})
 </script>
 
 <style lang="scss" scoped>
@@ -31,6 +73,7 @@ import HeaderHeroSvg from '../icons/MultiLayerIcon.vue'
   position: relative;
   overflow: hidden;
   padding-bottom: 5.2rem;
+  perspective: 1000px;
 
   &__background {
     svg {
@@ -39,8 +82,8 @@ import HeaderHeroSvg from '../icons/MultiLayerIcon.vue'
       right: -872px;
       width: 100%;
       transform: rotate(640deg);
-      -moz-transform: rotate(6440deg);
-      -ms-transform: rotate(640deg);
+      will-change: transform;
+      transform-style: preserve-3d;
     }
   }
 
@@ -50,6 +93,7 @@ import HeaderHeroSvg from '../icons/MultiLayerIcon.vue'
     font-size: clamp(2rem, 4vw, 2.6875rem);
     color: #fff;
     margin-bottom: 1.875rem;
+    will-change: transform, opacity;
   }
 
   &__desc {
@@ -57,10 +101,12 @@ import HeaderHeroSvg from '../icons/MultiLayerIcon.vue'
     font-weight: 100;
     font-size: clamp(1.1rem, 2vw, 1.4rem);
     color: #fff;
+    will-change: transform, opacity;
   }
 
   &__buttons {
     margin-top: 2.875rem;
+    will-change: transform, opacity;
 
     a {
       padding: 0.875rem 1.875rem;
