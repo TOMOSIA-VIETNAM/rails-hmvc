@@ -70,6 +70,21 @@
 
 <script setup>
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import { onMounted } from 'vue'
+import { useScrollAnimation } from '@/composables/useScrollAnimation'
+
+onMounted(() => {
+  const { fadeInUpOnLoad, fadeInUp, staggerChildren } = useScrollAnimation()
+
+  // Animate heading immediately on load
+  fadeInUpOnLoad('.reason-refactor__heading')
+
+  // Animate blocks with stagger effect
+  staggerChildren('.reason-refactor__blocks', '.reason-refactor__block:not(.d-md-none)')
+
+  // Animate video section
+  fadeInUp('.reason-refactor__video')
+})
 </script>
 
 <style lang="scss" scoped>
@@ -93,6 +108,12 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
         margin: -80px auto 40px;
       }
     }
+  }
+
+  &__heading,
+  &__video,
+  &__block {
+    // Remove opacity: 0 from here
   }
 
   &__heading {
@@ -127,6 +148,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
   &__block {
     line-height: 25px;
     margin-bottom: 50px;
+    will-change: transform, opacity; // Optimize performance
 
     @media (max-width: 768px) {
       margin-bottom: 30px;
@@ -151,6 +173,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
   }
 
   &__video {
+    will-change: transform, opacity; // Optimize performance
     @media (max-width: 768px) {
       order: 1;
     }
@@ -175,6 +198,16 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
       height: 100%;
       border: 0;
     }
+  }
+}
+
+.refactor-section {
+  &__content > * {
+    // Start invisible for animation
+  }
+
+  &__preview {
+    // Start invisible for animation
   }
 }
 </style>

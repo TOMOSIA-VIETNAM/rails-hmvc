@@ -26,6 +26,17 @@
 
 <script setup lang="ts">
 import EnhancedSliderComponent from '@/components/home_page/EnhancedSliderComponent.vue';
+import { onMounted } from 'vue'
+import { useScrollAnimation } from '@/composables/useScrollAnimation'
+
+onMounted(() => {
+  const { fadeInUp, fadeIn } = useScrollAnimation()
+
+  // Animate main sections
+  fadeInUp('.knowledge-arch__heading')
+  fadeIn('.knowledge-arch__subheading', 0.2)
+  fadeInUp('.enhanced-slider')
+})
 </script>
 
 <style lang="scss" scoped>
@@ -66,6 +77,30 @@ import EnhancedSliderComponent from '@/components/home_page/EnhancedSliderCompon
     letter-spacing: 2px;
     color: var(--c-primary);
     margin: 0;
+  }
+
+  &__heading,
+  &__subheading,
+  .enhanced-slider {
+    // Remove all opacity: 0 from here
+  }
+}
+
+.architecture-section {
+  &__title,
+  &__description {
+    opacity: 0; // Start invisible for animation
+  }
+
+  &__graph {
+    opacity: 0; // Start invisible for animation
+    .graph-line {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+    }
+    .data-point {
+      transform-origin: center;
+    }
   }
 }
 </style>
