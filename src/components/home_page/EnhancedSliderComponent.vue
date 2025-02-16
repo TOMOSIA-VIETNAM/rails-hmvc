@@ -2,15 +2,20 @@
   <section class="enhanced-slider" ref="sliderRef">
     <div class="enhanced-slider__container">
       <div class="enhanced-slider__image-section">
-        <transition-group name="fade" mode="out-in">
+        <div class="image-container">
           <img
             v-for="slide in slides"
             :key="slide.id"
             :src="slide.imageSrc"
             :alt="slide.title"
-            :class="{ 'active': slide.id === currentSlide.id }"
+            :class="{
+              'active': slide.id === currentSlide.id,
+              'prev': isPrevSlide(slide.id),
+              'next': isNextSlide(slide.id)
+            }"
+            @load="handleImageLoad(slide.id)"
           />
-        </transition-group>
+        </div>
       </div>
       <div class="enhanced-slider__content-section">
         <div
@@ -74,23 +79,50 @@ const sliderRef = ref(null)
 const isInViewport = ref(false)
 const hoveredIndex = ref(null)
 let sliderAnimation = null
+const imageLoaded = ref(false)
+const loadedImages = ref(new Set())
+const previousIndex = ref(0)
 
 const currentSlide = computed(() => slides[currentIndex.value])
 
+const handleImageLoad = (id) => {
+  loadedImages.value.add(id)
+}
+
+const isPrevSlide = (id) => {
+  const prevIdx = (currentIndex.value - 1 + slides.length) % slides.length
+  return slides[prevIdx].id === id
+}
+
+const isNextSlide = (id) => {
+  const nextIdx = (currentIndex.value + 1) % slides.length
+  return slides[nextIdx].id === id
+}
+
 const setCurrentSlide = (index) => {
-  currentIndex.value = index
-  resetProgress()
+  if (autoplayInterval.value) {
+    clearInterval(autoplayInterval.value)
+  }
+
+  previousIndex.value = currentIndex.value
+
+  const targetSlide = slides[index]
+  if (loadedImages.value.has(targetSlide.id)) {
+    currentIndex.value = index
+    resetProgress()
+
+    setTimeout(() => {
+      if (isInViewport.value) {
+        startAutoplay()
+      }
+    }, 1000)
+  }
 }
 
 const nextSlide = () => {
+  previousIndex.value = currentIndex.value
   currentIndex.value = (currentIndex.value + 1) % slides.length
   resetProgress()
-
-  // Animate image transition
-  const currentImage = document.querySelector('.enhanced-slider__image-section img.active')
-  if (currentImage && sliderAnimation) {
-    sliderAnimation.animateImageChange(currentImage)
-  }
 }
 
 const resetProgress = () => {
@@ -119,7 +151,6 @@ const checkInViewport = () => {
 onMounted(() => {
   const { animateSlider } = useScrollAnimation()
 
-  // Initialize slider animations
   sliderAnimation = animateSlider('.enhanced-slider', {
     imageScale: 0.95,
     imageDuration: 0.75,
@@ -149,7 +180,7 @@ watch(isInViewport, (newValue) => {
 .enhanced-slider {
   &__container {
     display: flex;
-    height: 500px; // Adjust as needed
+    height: 500px;
   }
 
   &__image-section {
@@ -161,6 +192,12 @@ watch(isInViewport, (newValue) => {
     border-radius: 1.5rem;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
 
+    .image-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
     img {
       width: 100%;
       height: 100%;
@@ -169,14 +206,28 @@ watch(isInViewport, (newValue) => {
       top: 0;
       left: 0;
       opacity: 0;
-      transition: all 0.75s ease-in-out;
+      transform: scale(0.95);
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+      will-change: opacity, transform;
       padding: 20px;
       border-radius: 1.5rem;
-      transform: scale(0.95);
 
       &.active {
         opacity: 1;
         transform: scale(1);
+        z-index: 2;
+      }
+
+      &.prev {
+        opacity: 0;
+        transform: scale(0.95);
+        z-index: 1;
+      }
+
+      &.next {
+        opacity: 0;
+        transform: scale(0.95);
+        z-index: 1;
       }
     }
   }
@@ -236,7 +287,6 @@ watch(isInViewport, (newValue) => {
   }
 }
 
-// Responsive styles
 @media (max-width: 768px) {
   .enhanced-slider {
     &__container {
@@ -279,21 +329,6 @@ watch(isInViewport, (newValue) => {
       font-size: 0.8rem;
     }
   }
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.75s ease-in-out;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.fade-enter-to,
-.fade-leave-from {
-  opacity: 1;
 }
 </style>
 
