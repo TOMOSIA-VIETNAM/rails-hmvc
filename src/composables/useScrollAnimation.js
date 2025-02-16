@@ -634,10 +634,11 @@ export const useScrollAnimation = () => {
     }, '-=0.6')
 
     tl.from(`${element} .hero-icon`, {
-      x: 30,
+      scale: 0.2,
       opacity: 0,
-      rotate: 360
-    }, '-=0.8')
+      duration: 0.8,
+      ease: "back.out(1.3)"
+    }, '-=1')
 
     // Continuous floating animation for background
     gsap.to(`${element}__background svg`, {

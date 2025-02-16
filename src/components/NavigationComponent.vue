@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg py-0 bg-dark">
     <div class="container">
       <a class="navbar-brand py-0" href="#">
-        <img src="@/assets/images/logo-dark.png" alt="logo" height="72" />
+        <img src="@/assets/images/logo-tms.png" alt="logo" height="72" />
         <span class="badge-corp">Tomosia's Ruby</span>
       </a>
       <button

@@ -6,9 +6,9 @@
       </div>
 
       <div>
-        <h2 class="banner-knowledge__heading">Rails Superhero Mode: Activated! 🦸‍♂️</h2>
+        <h2 class="banner-knowledge__heading">Rails Superhero Mode: Activated!</h2>
         <p class="banner-knowledge__desc">
-          Why juggle multiple frameworks when you can be a Rails ninja? 🥷
+          Why juggle multiple frameworks when you can be a Rails ninja?
           <br />
           <span class="text-highlight">One framework to rule them all, one HMVC to find them</span>
         </p>

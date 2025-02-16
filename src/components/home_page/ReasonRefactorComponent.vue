@@ -49,12 +49,7 @@
 
         <div class="reason-refactor__video col-12 col-md-9">
           <div class="reason-refactor__image image-box">
-            <iframe
-              src="https://drive.google.com/file/d/11nx1zikjwfOirzx81pZl5_NNm6NLhvT0/preview"
-              allow="autoplay"
-              allowfullscreen
-              class="responsive-iframe">
-            </iframe>
+            <iframe class="responsive-iframe" src="https://player.vimeo.com/video/1057188769?h=706ac188b9&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&?autoplay=1&muted=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"></iframe>
           </div>
           <div class="reason-refactor__block d-md-none mt-4">
             <button class="btn btn-outline-primary btn--rounded px-4 py-2 w-100">
@@ -210,6 +205,7 @@ onMounted(() => {
     overflow: hidden;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+    background-color: #21202c;
 
     .responsive-iframe {
       position: absolute;
