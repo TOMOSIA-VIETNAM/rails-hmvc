@@ -8,10 +8,12 @@
         <div class="col-10">
           <h1 class="hero-title">{{ $t('hero.header.title') }}</h1>
           <h1 class="hero-subtitle">{{ $t('hero.header.subtitle') }}</h1>
-          <div class="hero-control row align-items-center">
-            <div class="d-flex flex-align-center hero-control__btn">
-              <a href="" class="btn btn--rounded btn-dark me-4">{{ $t('hero.header.installButton') }}</a>
-              <p class="hero-control__desc mb-0" v-html="$t('hero.header.description')"></p>
+          <div class="hero-control row">
+            <div class="hero-control__wrapper">
+              <a href="https://github.com/TOMOSIA-VIETNAM/hmvc-rails" target="_blank" class="btn btn--rounded btn-dark hero-control__install-btn">
+                {{ $t('hero.header.installButton') }}
+              </a>
+              <p class="hero-control__desc" v-html="$t('hero.header.description')"></p>
             </div>
           </div>
         </div>
@@ -89,28 +91,45 @@ onMounted(() => {
 
     .hero-control {
       padding-top: 3rem;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
 
-      &__btn {
+      &__wrapper {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: nowrap;
+      }
+
+      &__install-btn {
         flex-shrink: 0;
+        font-size: clamp(0.875rem, 1.2vw, 1.1rem);
+        padding: 0.75rem 1.5rem;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        background: linear-gradient(45deg, var(--c-gray-900), #000);
+        border: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
 
-        .btn {
-          font-size: clamp(17px, 3vw, 20px);
-          padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 3vw, 2rem);
-          font-weight: 100;
-          white-space: nowrap;
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+          background: linear-gradient(45deg, #000, var(--c-gray-900));
+        }
+
+        .svg-inline--fa {
+          font-size: 0.9em;
         }
       }
 
       &__desc {
-        font-size: clamp(14px, 2.5vw, 16px);
+        font-size: clamp(0.75rem, 1.2vw, 0.875rem);
         font-weight: 300;
-        color: rgba(25, 25, 28, 0.5);
-        display: flex;
-        align-items: center;
+        color: rgba(25, 25, 28, 0.6);
+        margin: 0;
+        line-height: 1.5;
+        flex: 1;
+        min-width: 0;
       }
     }
   }
@@ -135,24 +154,36 @@ onMounted(() => {
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .header-hero {
     &__content {
       .hero-control {
-        flex-direction: column;
-        align-items: flex-start;
+        &__wrapper {
+          gap: 1rem;
+        }
 
-        &__btn {
-          width: 100%;
-
-          .btn {
-            max-width: 100%;
-          }
+        &__install-btn {
+          padding: 0.625rem 1rem;
+          font-size: 0.875rem;
         }
 
         &__desc {
-          text-align: center;
-          width: 100%;
+          font-size: 0.75rem;
+          br {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .header-hero {
+    &__content {
+      .hero-control {
+        &__install-btn {
+          padding: 0.5rem 0.875rem;
         }
       }
     }

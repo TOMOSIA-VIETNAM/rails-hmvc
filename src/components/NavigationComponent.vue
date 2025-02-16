@@ -7,7 +7,7 @@
       </a>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link">
+          <a class="nav-link" href="https://github.com/TOMOSIA-VIETNAM/hmvc-rails" target="_blank">
             <font-awesome-icon :icon="faGithub" size="lg" fade />
             <span>&nbsp; {{ $t('navigation.version') }}</span>
           </a>
