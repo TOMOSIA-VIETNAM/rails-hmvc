@@ -23,7 +23,6 @@
           </div>
 
           <blockquote class="ms-2 owner-say__feedback-quote">
-            <i>They said 'MVC is enough' - I said 'Hold my coffee!'☕ </i>
             <p class="pt-1">
             I created HMVC with a vision to solve the inherent complexity issues in large-scale applications.
             By introducing a hierarchical structure
@@ -55,7 +54,6 @@
           </div>
 
           <blockquote class="ms-2 owner-say__feedback-quote">
-            <i>When I first saw HMVC, it was like discovering a secret level in a video game 🎮</i>
             <p class="pt-1">
             Taking the foundational principles, we've evolved it into a powerful, modern architecture that addresses today's
             development challenges. Our focus has been on enhancing developer experience through clear abstractions
