@@ -9,12 +9,14 @@ export const LOCALES = {
   // VIETNAMESE: 'vi'
 }
 
-export const DEFAULT_LOCALE = LOCALES.ENGLISH
+const STORAGE_KEY = 'user-locale'
+const savedLocale = localStorage.getItem(STORAGE_KEY)
+export const DEFAULT_LOCALE = savedLocale || LOCALES.ENGLISH
 
 export const i18n = createI18n({
   legacy: false, // Set to false to use Composition API
   locale: DEFAULT_LOCALE,
-  fallbackLocale: DEFAULT_LOCALE,
+  fallbackLocale: LOCALES.ENGLISH,
   messages: {
     [LOCALES.ENGLISH]: en,
     [LOCALES.JAPANESE]: ja,
@@ -27,13 +29,16 @@ export const useLanguage = () => {
   const setLocale = (locale) => {
     i18n.global.locale.value = locale
     document.querySelector('html').setAttribute('lang', locale)
-    localStorage.setItem('user-locale', locale)
+    localStorage.setItem(STORAGE_KEY, locale)
   }
 
   const initializeLocale = () => {
-    const savedLocale = localStorage.getItem('user-locale')
-    if (savedLocale) {
+    const savedLocale = localStorage.getItem(STORAGE_KEY)
+    if (savedLocale && Object.values(LOCALES).includes(savedLocale)) {
       setLocale(savedLocale)
+    } else {
+      // If no saved locale or invalid, set default
+      setLocale(LOCALES.ENGLISH)
     }
   }
 
