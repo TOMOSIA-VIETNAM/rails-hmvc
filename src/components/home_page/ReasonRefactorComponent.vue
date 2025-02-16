@@ -3,18 +3,15 @@
     <div class="container">
       <div class="row why-choose d-none d-md-block">
         <div class="col-12 col-md-3">
-          <div class="why-choose__title">
-            Why <br />
-            choose HMVC
-          </div>
+          <div class="why-choose__title" v-html="$t('reasonRefactor.whyChoose')"></div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-12 col-md-7">
+        <div class="col-12">
           <h2 class="reason-refactor__heading">
-            Refactor for clarity<br />
-            <span class="text-black-50">lessen debt</span>
+            {{ $t('reasonRefactor.heading.main') }}<br />
+            <span class="text-black-50">{{ $t('reasonRefactor.heading.sub') }}</span>
           </h2>
         </div>
       </div>
@@ -22,27 +19,27 @@
       <div class="reason-refactor__content d-flex flex-column flex-md-row">
         <div class="reason-refactor__blocks col-12 col-md-4 pe-md-4">
           <div class="reason-refactor__block">
-            <h3 class="reason-refactor__block-title">Missing abstractions</h3>
+            <h3 class="reason-refactor__block-title">{{ $t('reasonRefactor.blocks.missingAbstractions.title') }}</h3>
             <p class="reason-refactor__block-desc">
-              Web frameworks excel at routing and rendering but often fall short in structuring business logic. Without clear abstractions, code becomes tangled, complex, and difficult to maintain.
+              {{ $t('reasonRefactor.blocks.missingAbstractions.description') }}
             </p>
           </div>
           <div class="reason-refactor__block">
-            <h3 class="reason-refactor__block-title">Our Solution</h3>
+            <h3 class="reason-refactor__block-title">{{ $t('reasonRefactor.blocks.solution.title') }}</h3>
             <p class="reason-refactor__block-desc">
-              HMVC introduces the "operation" abstraction, breaking logic into well-defined steps. This improves flow control, enhances maintainability, and makes complex processes more manageable.
+              {{ $t('reasonRefactor.blocks.solution.description') }}
             </p>
           </div>
           <div class="reason-refactor__block">
-            <h3 class="reason-refactor__block-title">Rock-Solid Conventions</h3>
+            <h3 class="reason-refactor__block-title">{{ $t('reasonRefactor.blocks.conventions.title') }}</h3>
             <p class="reason-refactor__block-desc">
-              With the Railway pattern, HMVC streamlines error handling, minimizes excessive conditionals, and boosts code reusability through inheritance and composition—resulting in cleaner, more efficient development.
+              {{ $t('reasonRefactor.blocks.conventions.description') }}
             </p>
           </div>
           <div class="reason-refactor__block d-none d-md-block">
             <button class="btn btn-outline-primary btn--rounded px-4 py-2">
               <font-awesome-icon :icon="faPlay" />
-              <span class="ps-3">Take a video tour</span>
+              <span class="ps-3">{{ $t('reasonRefactor.videoTour') }}</span>
             </button>
           </div>
         </div>
@@ -54,7 +51,7 @@
           <div class="reason-refactor__block d-md-none mt-4">
             <button class="btn btn-outline-primary btn--rounded px-4 py-2 w-100">
               <font-awesome-icon :icon="faPlay" />
-              <span class="ps-3">Take a video tour</span>
+              <span class="ps-3">{{ $t('reasonRefactor.videoTour') }}</span>
             </button>
           </div>
         </div>
@@ -104,6 +101,8 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .reason-refactor {
+  padding-bottom: 3.5rem;
+
   .why-choose {
     &__title {
       font-size: clamp(10px, 2vw, 12px);

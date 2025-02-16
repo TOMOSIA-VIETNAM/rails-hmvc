@@ -1,7 +1,7 @@
 <template>
   <section class="section bg-gray--100 owner-say">
     <div class="container">
-      <h3 class="owner-say__title">Meet the wizards behind the magic ✨</h3>
+      <h3 class="owner-say__title">{{ $t('ownerSay.title') }}</h3>
 
       <div class="row owner-say__feedback">
         <div class="col-12 col-md-9">
@@ -15,21 +15,13 @@
               />
             </div>
             <div class="col z-1">
-              <h4 class="owner-say__feedback-owner">Mr. Anh Nguyen</h4>
-              <span class="owner-say__feedback-position"
-                >CTO, HMVC Founder</span
-              >
+              <h4 class="owner-say__feedback-owner">{{ $t('ownerSay.founder.name') }}</h4>
+              <span class="owner-say__feedback-position">{{ $t('ownerSay.founder.position') }}</span>
             </div>
           </div>
 
           <blockquote class="ms-2 owner-say__feedback-quote">
-            <p class="pt-1">
-            I created HMVC with a vision to solve the inherent complexity issues in large-scale applications.
-            By introducing a hierarchical structure
-            to the traditional MVC pattern, we've established a framework-agnostic approach that brings clarity
-            and maintainability to complex codebases. It's incredibly rewarding to see how this architecture has
-            helped numerous teams reduce technical debt and build more sustainable applications.
-            </p>
+            <p class="pt-1">{{ $t('ownerSay.founder.quote') }}</p>
           </blockquote>
         </div>
       </div>
@@ -46,20 +38,13 @@
               />
             </div>
             <div class="col z-1">
-              <h4 class="owner-say__feedback-owner">Mr. Minh Tang</h4>
-              <span class="owner-say__feedback-position"
-                >Leader Architect, HMVC Maintainer</span
-              >
+              <h4 class="owner-say__feedback-owner">{{ $t('ownerSay.maintainer.name') }}</h4>
+              <span class="owner-say__feedback-position">{{ $t('ownerSay.maintainer.position') }}</span>
             </div>
           </div>
 
           <blockquote class="ms-2 owner-say__feedback-quote">
-            <p class="pt-1">
-            Taking the foundational principles, we've evolved it into a powerful, modern architecture that addresses today's
-            development challenges. Our focus has been on enhancing developer experience through clear abstractions
-            and maintainable patterns. The architecture's flexibility allows teams to gradually adopt it in existing
-            projects, making it an ideal solution for both new developments and legacy system modernization.
-            </p>
+            <p class="pt-1">{{ $t('ownerSay.maintainer.quote') }}</p>
           </blockquote>
         </div>
       </div>

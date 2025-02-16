@@ -7,7 +7,7 @@
             v-for="slide in slides"
             :key="slide.id"
             :src="slide.imageSrc"
-            :alt="slide.title"
+            :alt="$t(`enhancedSlider.slides.${slide.key}.title`)"
             :class="{
               'active': slide.id === currentSlide.id,
               'prev': isPrevSlide(slide.id),
@@ -28,8 +28,10 @@
           @mouseleave="hoveredIndex = null"
         >
           <div class="enhanced-slider__content-wrapper">
-            <h3 class="enhanced-slider__title">{{ slide.title }}</h3>
-            <p class="enhanced-slider__description" v-if="index === currentIndex">{{ slide.description }}</p>
+            <h3 class="enhanced-slider__title">{{ $t(`enhancedSlider.slides.${slide.key}.title`) }}</h3>
+            <p class="enhanced-slider__description" v-if="index === currentIndex">
+              {{ $t(`enhancedSlider.slides.${slide.key}.description`) }}
+            </p>
           </div>
           <div
             class="enhanced-slider__progress-bar"
@@ -48,26 +50,22 @@ import { useScrollAnimation } from '@/composables/useScrollAnimation'
 const slides = [
   {
     id: 1,
-    title: 'MVC vs HMVC',
-    description: 'Visualizing the relationship between codebase size and maintenance complexity. While traditional Rails shows exponential pain growth as projects scale, HMVC maintains linear complexity through structured organization and clear boundaries. This architectural approach ensures sustainable development for both small and large applications.',
+    key: 'mvcVsHmvc',
     imageSrc: new URL('@/assets/images/mvc-vs-hmvc.png', import.meta.url).href
   },
   {
     id: 2,
-    title: 'Overview Layer',
-    description: 'A strategic layered architecture that streamlines business flow from request to response. Each layer has a distinct responsibility: from handling requests, through authorization and validation, to business logic execution and data persistence. This separation ensures clean testing, maintainable code, and prevents cross-layer bugs while keeping business logic focused and pure.',
+    key: 'overviewLayer',
     imageSrc: new URL('@/assets/images/overview-layer.png', import.meta.url).href
   },
   {
     id: 3,
-    title: 'Flow Control',
-    description: 'Execute queries in different modes and keep track of all your activity with the local history, preventing you from losing your work.',
+    key: 'flowControl',
     imageSrc: new URL('@/assets/images/flow-control.gif', import.meta.url).href
   },
   {
     id: 4,
-    title: 'Structure Project',
-    description: 'HMVC organizes your project into clear, modular components. The core structure includes Controllers for routing, Operations for business workflows, Forms for validation, Models for data management, and Policies for authorization. This modular approach enables parallel development, easier testing, and maintainable code organization that scales with your project growth.',
+    key: 'structureProject',
     imageSrc: new URL('@/assets/images/structure-project.png', import.meta.url).href
   }
 ]
@@ -271,6 +269,8 @@ watch(isInViewport, (newValue) => {
   }
 
   &__description {
+    font-family: var(--font-sub-heading);
+    font-weight: 300;
     font-size: 0.9rem;
     transition: opacity 0.3s ease;
     overflow-y: auto;

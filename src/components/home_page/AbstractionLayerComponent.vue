@@ -2,25 +2,21 @@
   <section class="section bg-gray--900 abs-layer">
     <div class="container">
       <div class="abs-layer__heading">
-        <h2 class="abs-layer__title">Abstraction Layers</h2>
+        <h2 class="abs-layer__title">{{ $t('abstractionLayer.title') }}</h2>
         <p class="abs-layer__desc">
-          <span class="text--green-400">CORE MISSION: ENSURE SOFTWARE LONGEVITY</span>
-          <br />Achieve sustainable and maintainable software architecture
-          <br />through strategic implementation of modern abstraction layers.
+          <span class="text--green-400">{{ $t('abstractionLayer.mission') }}</span>
+          <br />{{ $t('abstractionLayer.description[0]') }}
+          <br />{{ $t('abstractionLayer.description[1]') }}
         </p>
       </div>
 
       <!-- Slim Controller -->
       <div class="abs-layer__box d-md-flex d-block">
         <div class="col-md-6 col-12">
-          <h3 class="abs-layer__box-title">Slim Controller</h3>
+          <h3 class="abs-layer__box-title">{{ $t('abstractionLayer.sections.slimController.title') }}</h3>
           <div class="abs-layer__box-desc">
-            <p>Streamline your controllers by removing business logic entirely.</p>
-            <p>
-              Modern controllers serve as traffic directors - they handle HTTP requests,
-              manage routing, and delegate processing to specialized Operations. This separation
-              ensures clean, maintainable code and clear responsibility boundaries.
-            </p>
+            <p>{{ $t('abstractionLayer.sections.slimController.description[0]') }}</p>
+            <p>{{ $t('abstractionLayer.sections.slimController.description[1]') }}</p>
           </div>
         </div>
         <div class="col-md-6 col-12 mt-3">
@@ -43,14 +39,9 @@ end"
       <!-- Slim Model -->
       <div class="abs-layer__box d-md-flex d-block">
         <div class="col-md-6 col-12">
-          <h3 class="abs-layer__box-title">Domain Model Excellence</h3>
+          <h3 class="abs-layer__box-title">{{ $t('abstractionLayer.sections.domainModel.title') }}</h3>
           <div class="abs-layer__box-desc">
-            <p>
-              Transform your models into focused domain entities that excel at their core purpose:
-              managing data relationships and database interactions. By removing business logic
-              and validation concerns, models become more maintainable and scalable. This approach
-              promotes better code organization and enhances team collaboration.
-            </p>
+            <p>{{ $t('abstractionLayer.sections.domainModel.description[0]') }}</p>
           </div>
         </div>
 
@@ -68,17 +59,10 @@ end"
       <!-- Validation That Makes Sense  -->
       <div class="d-md-flex d-block abs-layer__box">
         <div class="col-md-6 col-12">
-          <h3 class="abs-layer__box-title">Intelligent Validation Layer</h3>
+          <h3 class="abs-layer__box-title">{{ $t('abstractionLayer.sections.validation.title') }}</h3>
           <div class="abs-layer__box-desc">
-            <p>
-              Embrace a more logical approach to data validation by moving it to dedicated form objects.
-              This separation creates a clear boundary between data validation and business logic.
-            </p>
-            <p>
-              Form objects handle data coercion, validation rules, and ensure data integrity before
-              any business operations begin. This proactive validation strategy prevents invalid data
-              from reaching your core business logic, reducing errors and improving system reliability.
-            </p>
+            <p>{{ $t('abstractionLayer.sections.validation.description[0]') }}</p>
+            <p>{{ $t('abstractionLayer.sections.validation.description[1]') }}</p>
           </div>
         </div>
         <div class="col-md-6 col-12 mt-3">
@@ -96,19 +80,10 @@ end"
       <!-- Operation -->
       <div class="d-md-flex d-block abs-layer__box">
         <div class="col-md-6 col-12">
-          <h3 class="abs-layer__box-title">Orchestrated Business Logic</h3>
+          <h3 class="abs-layer__box-title">{{ $t('abstractionLayer.sections.operation.title') }}</h3>
           <div class="abs-layer__box-desc">
-            <p>
-              Operations act as conductors in your application's symphony, orchestrating complex
-              business processes with clarity and precision.
-            </p>
-            <p>
-              Each operation encapsulates a specific business workflow, breaking it down into
-              clear, sequential steps. This structured approach enhances code readability,
-              facilitates testing, and makes complex business processes more manageable.
-              Operations promote code reuse and make your application's business logic
-              more maintainable and scalable.
-            </p>
+            <p>{{ $t('abstractionLayer.sections.operation.description[0]') }}</p>
+            <p>{{ $t('abstractionLayer.sections.operation.description[1]') }}</p>
           </div>
         </div>
         <div class="col-md-6 col-12 mt-3">
@@ -214,7 +189,7 @@ onMounted(() => {
   }
 
   &__box {
-    padding: 2rem;
+    padding: 2rem 0;
     border-radius: 8px;
     position: relative;
     overflow: hidden;

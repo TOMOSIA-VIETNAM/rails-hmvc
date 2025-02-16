@@ -6,17 +6,17 @@
       </div>
 
       <div>
-        <h2 class="banner-knowledge__heading">Rails Superhero Mode: Activated!</h2>
+        <h2 class="banner-knowledge__heading">{{ $t('knowledgeBanner.heading') }}</h2>
         <p class="banner-knowledge__desc">
-          Why juggle multiple frameworks when you can be a Rails ninja?
+          {{ $t('knowledgeBanner.description') }}
           <br />
-          <span class="text-highlight">One framework to rule them all, one HMVC to find them</span>
+          <span class="text-highlight">{{ $t('knowledgeBanner.highlight') }}</span>
         </p>
       </div>
 
       <div class="banner-knowledge__buttons">
-        <a href="" class="btn btn-light btn--rounded">Install for free</a>
-        <a href="" class="btn btn-outline-light btn--rounded">Let's see demo</a>
+        <a href="" class="btn btn-light btn--rounded">{{ $t('knowledgeBanner.installButton') }}</a>
+        <a href="" class="btn btn-outline-light btn--rounded">{{ $t('knowledgeBanner.demoButton') }}</a>
       </div>
     </div>
   </section>
