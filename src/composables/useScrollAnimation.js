@@ -206,9 +206,11 @@ export const useScrollAnimation = () => {
         ease = 'sine.inOut',
         repeat = 0,
         yoyo = true,
-        scrub = 1,
         start = 'top bottom',
-        end = 'bottom top'
+        end = 'bottom top',
+        rotation = 4,
+        scale = 1.01,
+        transformOrigin = 'center center'
       } = options
 
       gsap.to(el, {
@@ -218,11 +220,13 @@ export const useScrollAnimation = () => {
         ease,
         repeat,
         yoyo,
+        rotation,
+        scale,
+        transformOrigin,
         scrollTrigger: {
           trigger: el,
           start,
-          end,
-          scrub
+          end
         }
       })
     })
@@ -640,13 +644,16 @@ export const useScrollAnimation = () => {
       ease: "back.out(1.3)"
     }, '-=1')
 
-    // Continuous floating animation for background
-    gsap.to(`${element}__background svg`, {
-      y: 20,
-      duration: 4,
-      ease: 'sine.inOut',
+    gsap.to('.header-hero__background svg', {
+      y: 4,
+      x: 5,
+      rotation: 4,
+      scale: 1.01,
+      duration: 5,
       repeat: -1,
-      yoyo: true
+      yoyo: true,
+      ease: 'sine.inOut',
+      transformOrigin: 'center center'
     })
 
     return tl

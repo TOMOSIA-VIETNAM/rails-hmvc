@@ -1,4 +1,9 @@
-$font-family-base: 'Roboto', system-ui, BlinkMacSystemFont, 'Segoe UI';
+// Base fonts for different languages
+$font-family-en: 'Roboto', system-ui, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-family-jp: 'Noto Sans CJK JP', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Yu Gothic', '游ゴシック', YuGothic, '游ゴシック体', sans-serif;
+
+// Dynamic base font based on language
+$font-family-base: var(--font-body) !default;
 
 // Colors
 $dark: #27282c !default;
@@ -17,6 +22,14 @@ $dark-dim-green: #233a35 !default;
   --c-gray-900: #19191c;
   --c-dark-dim-green: #233a35;
 
-  --font-heading: 'Noto Sans', Roboto, sans-serif;
-  --font-sub-heading: Roboto, sans-serif;
+  --font-heading: 'Noto Sans', #{$font-family-en};
+  --font-sub-heading: #{$font-family-en};
+  --font-body: #{$font-family-en};
+}
+
+// Apply Japanese fonts when html lang is set to 'ja'
+:root[lang="ja"] {
+  --font-heading: 'Noto Sans JP', #{$font-family-jp};
+  --font-sub-heading: #{$font-family-jp};
+  --font-body: #{$font-family-jp};
 }

@@ -13,6 +13,9 @@ const STORAGE_KEY = 'user-locale'
 const savedLocale = localStorage.getItem(STORAGE_KEY)
 export const DEFAULT_LOCALE = savedLocale || LOCALES.ENGLISH
 
+// Initialize HTML lang attribute
+document.documentElement.lang = DEFAULT_LOCALE
+
 export const i18n = createI18n({
   legacy: false, // Set to false to use Composition API
   locale: DEFAULT_LOCALE,

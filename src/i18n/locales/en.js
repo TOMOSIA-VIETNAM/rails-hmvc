@@ -115,6 +115,10 @@ export default {
           'Each operation encapsulates a specific business workflow, breaking it down into clear, sequential steps. This structured approach enhances code readability, facilitates testing, and makes complex business processes more manageable. Operations promote code reuse and make your application\'s business logic more maintainable and scalable.'
         ]
       }
+    },
+    cta: {
+      ready: 'Ready to level up your Rails architecture?',
+      getStarted: 'Get Started with HMVC'
     }
   },
   common: {

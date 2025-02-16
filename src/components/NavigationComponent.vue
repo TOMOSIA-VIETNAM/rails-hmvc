@@ -5,41 +5,28 @@
         <img src="@/assets/images/logo-tms.png" alt="logo" height="72" />
         <span class="badge-corp">{{ $t('hero.title') }}</span>
       </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link">
-              <font-awesome-icon :icon="faGithub" size="lg" fade />
-              <span>&nbsp; {{ $t('navigation.version') }}</span>
-            </a>
-          </li>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link">
+            <font-awesome-icon :icon="faGithub" size="lg" fade />
+            <span>&nbsp; {{ $t('navigation.version') }}</span>
+          </a>
+        </li>
 
-          <li class="nav-item">
-            <a class="nav-link">{{ $t('navigation.documentation') }}</a>
-          </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link">{{ $t('navigation.documentation') }}</a>
+        </li> -->
 
-          <li class="nav-item d-flex align-items-center">
-            <LanguageSwitcherComponent class="light" />
-          </li>
+        <li class="nav-item d-flex align-items-center">
+          <LanguageSwitcherComponent class="light" />
+        </li>
 
-          <!-- <li class="nav-item">
-            <a class="nav-link">
-              <a link="#" class="btn btn--rounded btn-primary">{{ $t('navigation.contact') }}</a>
-            </a>
-          </li> -->
-        </ul>
-      </div>
+        <!-- <li class="nav-item">
+          <a class="nav-link">
+            <a link="#" class="btn btn--rounded btn-primary">{{ $t('navigation.contact') }}</a>
+          </a>
+        </li> -->
+      </ul>
     </div>
   </nav>
 </template>
@@ -74,7 +61,9 @@ onMounted(() => {
 
 <style scoped>
 .navbar-nav {
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
 
 .navbar-brand {

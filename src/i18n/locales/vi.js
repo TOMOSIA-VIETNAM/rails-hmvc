@@ -116,6 +116,10 @@ export default {
           'Mỗi operation đóng gói một quy trình nghiệp vụ cụ thể, chia nhỏ nó thành các bước tuần tự rõ ràng. Cách tiếp cận có cấu trúc này nâng cao khả năng đọc mã nguồn, tạo điều kiện thuận lợi cho việc kiểm thử và làm cho các quy trình nghiệp vụ phức tạp dễ quản lý hơn. Operations thúc đẩy việc tái sử dụng mã và làm cho logic nghiệp vụ của ứng dụng dễ bảo trì và mở rộng hơn.'
         ]
       }
+    },
+    cta: {
+      ready: 'Sẵn sàng nâng cấp kiến trúc Rails của bạn?',
+      getStarted: 'Bắt đầu với HMVC'
     }
   },
   common: {

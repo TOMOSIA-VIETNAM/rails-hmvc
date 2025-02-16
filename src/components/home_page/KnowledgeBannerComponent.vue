@@ -57,13 +57,12 @@ onMounted(() => {
 
   // Add continuous floating parallax effect to background
   parallaxBackground('.banner-knowledge__background svg', {
-    x: 15,
-    y: 20,
-    duration: 4,
+    x: 4,
+    y: 5,
+    duration: 23,
     ease: 'sine.inOut',
     repeat: -1,
-    yoyo: true,
-    scrub: false
+    yoyo: true
   })
 })
 </script>
