@@ -5,6 +5,7 @@ import { createPinia } from 'pinia'
 
 import App from '@/App.vue'
 import router from '@/router'
+import { i18n } from '@/i18n'
 
 /** Import Font Awesome icons
   Import all icons:
@@ -35,5 +36,6 @@ app.use(createPinia())
 app.use(router)
 app.use(bootstrap)
 app.use(hljsVuePlugin)
+app.use(i18n)
 
 app.mount('#app')

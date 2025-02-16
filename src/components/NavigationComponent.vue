@@ -3,7 +3,7 @@
     <div class="container">
       <a class="navbar-brand py-0" href="#">
         <img src="@/assets/images/logo-tms.png" alt="logo" height="72" />
-        <span class="badge-corp">Tomosia's Ruby</span>
+        <span class="badge-corp">{{ $t('hero.title') }}</span>
       </a>
       <button
         class="navbar-toggler"
@@ -21,21 +21,21 @@
           <li class="nav-item">
             <a class="nav-link">
               <font-awesome-icon :icon="faGithub" size="lg" fade />
-              <span>&nbsp; v1.0.0</span>
+              <span>&nbsp; {{ $t('navigation.version') }}</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link">Documentation</a>
+            <a class="nav-link">{{ $t('navigation.documentation') }}</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link">About</a>
+          <li class="nav-item d-flex align-items-center">
+            <LanguageSwitcherComponent class="light" />
           </li>
 
           <!-- <li class="nav-item">
             <a class="nav-link">
-              <a link="#" class="btn btn--rounded btn-primary">Contact with us</a>
+              <a link="#" class="btn btn--rounded btn-primary">{{ $t('navigation.contact') }}</a>
             </a>
           </li> -->
         </ul>
@@ -48,6 +48,7 @@
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { onMounted } from 'vue'
 import { useScrollAnimation } from '@/composables/useScrollAnimation'
+import LanguageSwitcherComponent from '@/components/common/LanguageSwitcherComponent.vue'
 
 onMounted(() => {
   const { fadeInUp, staggerChildren } = useScrollAnimation()

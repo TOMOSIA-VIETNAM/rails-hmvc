@@ -1,17 +1,17 @@
 <template>
   <section class="section knowledge-arch bg-gray--100">
-    <div class="container mb-4">
+    <div class="container mb-4 pt-4">
       <div class="row">
         <div class="col-12">
           <div class="knowledge-arch__title-wrapper">
             <h2 class="knowledge-arch__heading">
-              Architectural Mastery
+              {{ $t('architecture.heading') }}
               <span class="knowledge-arch__heading-highlight"></span>
             </h2>
             <p class="knowledge-arch__subheading">
-              MVC: The Next Generation
+              {{ $t('architecture.subheading') }}
               <br/>
-              <span class="knowledge-arch__subheading-small">Evolution, not Revolution - Because we don't break things, we make them better!</span>
+              <span class="knowledge-arch__subheading-small">{{ $t('architecture.description') }}</span>
             </p>
           </div>
         </div>

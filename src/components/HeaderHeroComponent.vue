@@ -6,12 +6,12 @@
     <div class="header-hero__content container">
       <div class="row">
         <div class="col-10">
-          <h1 class="hero-title">High Level MVC</h1>
-          <h1 class="hero-subtitle">Simplify business logic and rapid application development</h1>
+          <h1 class="hero-title">{{ $t('hero.header.title') }}</h1>
+          <h1 class="hero-subtitle">{{ $t('hero.header.subtitle') }}</h1>
           <div class="hero-control row align-items-center">
             <div class="d-flex flex-align-center hero-control__btn">
-              <a href="" class="btn btn--rounded btn-dark me-4">Install for free</a>
-              <p class="hero-control__desc mb-0">Full-fledged Professional <br> or Free Community</p>
+              <a href="" class="btn btn--rounded btn-dark me-4">{{ $t('hero.header.installButton') }}</a>
+              <p class="hero-control__desc mb-0" v-html="$t('hero.header.description')"></p>
             </div>
           </div>
         </div>
