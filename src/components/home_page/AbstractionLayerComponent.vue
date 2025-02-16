@@ -19,17 +19,17 @@
             <p>{{ $t('abstractionLayer.sections.slimController.description[1]') }}</p>
           </div>
         </div>
-        <div class="col-md-6 col-12 mt-3">
+        <div class="col-md-6 col-12">
           <highlightjs
             language="ruby"
-            code="
-class LoginController < ApplicationController
-  # [POST]...
+            code="# app/controllers/sessions_controller.rb
+class SessionsController < ApplicationController
   def create
-    operator = Login::CreateOperation.new(params)
+    operator = Auth::LoginOperation.new(params:)
     operator.call
+    return redirect_to dashboard_path if operator.success?
 
-    # Logic here
+    render :new
   end
 end"
           />
@@ -45,12 +45,15 @@ end"
           </div>
         </div>
 
-        <div class="col-md-6 col-12 mt-3">
+        <div class="col-md-6 col-12">
           <highlightjs
             language="ruby"
-            code="
+            code="# app/models/user.rb
 class User < ApplicationRecord
-  has_many :user_logins
+  has_secure_password
+
+  has_many :login_activities
+  has_many :active_sessions
 end"
           />
         </div>
@@ -65,12 +68,16 @@ end"
             <p>{{ $t('abstractionLayer.sections.validation.description[1]') }}</p>
           </div>
         </div>
-        <div class="col-md-6 col-12 mt-3">
+        <div class="col-md-6 col-12">
           <highlightjs
             language="ruby"
-            code="
-class Login::CreateForm < ApplicationForm
-  validates :email, presence: true
+            code="# app/forms/sessions/create_form.rb
+class Sessions::CreateForm < ApplicationForm
+  attribute :email
+  attribute :password
+  attribute :remember_me, :boolean, default: false
+
+  validates :email, presence: true, email: true
   validates :password, presence: true
 end"
           />
@@ -86,30 +93,32 @@ end"
             <p>{{ $t('abstractionLayer.sections.operation.description[1]') }}</p>
           </div>
         </div>
-        <div class="col-md-6 col-12 mt-3">
+        <div class="col-md-6 col-12">
           <highlightjs
             language="ruby"
-            code="
-class Login::CreateOperation < ApplicationOperation
+            code="# app/operations/sessions/create_operation.rb
+class Sessions::CreateOperation < ApplicationOperation
   attr_reader :user
 
   def call
-    step_load_form { return }
-    step_login
-  end
-
-  private
-
-  def step_load_form
-    # Logic validate form here
-  end
-
-  def step_login
-    # Logic bussiness here
+    step_validate
+    step_track_login
+    step_create_session
+  rescue Auth::LoginError => e
+    fail!(message: e.message)
   end
 end"
           />
         </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="abs-layer__cta text-center">
+        <p class="abs-layer__cta-text">{{ $t('abstractionLayer.cta.ready') }}</p>
+        <a :href="getGithubUrl()" target="_blank" class="btn btn-primary btn--rounded px-4 py-2">
+          <font-awesome-icon :icon="faRocket" class="me-2" />
+          {{ $t('abstractionLayer.cta.getStarted') }}
+        </a>
       </div>
     </div>
   </section>
@@ -118,6 +127,10 @@ end"
 <script setup>
 import { onMounted } from 'vue'
 import { useScrollAnimation } from '@/composables/useScrollAnimation'
+import { faRocket } from '@fortawesome/free-solid-svg-icons'
+import { useSettings } from '@/config/settings'
+
+const { getGithubUrl } = useSettings()
 
 onMounted(() => {
   const { fadeInUp, animateCodeBlock, animateFeatureBox } = useScrollAnimation()
@@ -150,12 +163,49 @@ onMounted(() => {
     duration: 0.8,
     hoverScale: 1.02
   })
+
+  // Animate CTA section
+  fadeInUp('.abs-layer__cta', {
+    y: 30,
+    duration: 0.8,
+    ease: 'power2.out'
+  })
 })
 </script>
 
 <style lang="scss" scoped>
 .abs-layer {
   color: #fff;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 5rem;
+
+  &__cta {
+    margin-top: 3rem;
+    position: relative;
+    z-index: 2;
+
+    &-text {
+      font-size: 1.25rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+
+    .btn {
+      font-size: 1.1rem;
+      padding: 0.75rem 2rem;
+      transition: all 0.3s ease;
+      background: linear-gradient(45deg, var(--c-primary--300), var(--c-primary));
+      border: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
 
   pre {
     border-radius: 0.35rem;
@@ -246,6 +296,24 @@ onMounted(() => {
 
   &__feature {
     will-change: transform, opacity;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-30px, 30px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 </style>

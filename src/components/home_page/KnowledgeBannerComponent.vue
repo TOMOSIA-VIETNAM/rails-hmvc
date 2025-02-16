@@ -15,7 +15,7 @@
       </div>
 
       <div class="banner-knowledge__buttons">
-        <a href="" class="btn btn-light btn--rounded">{{ $t('knowledgeBanner.installButton') }}</a>
+        <a :href="getGithubUrl()" target="_blank" class="btn btn-light btn--rounded">{{ $t('knowledgeBanner.installButton') }}</a>
         <a href="" class="btn btn-outline-light btn--rounded">{{ $t('knowledgeBanner.demoButton') }}</a>
       </div>
     </div>
@@ -26,6 +26,9 @@
 import HeaderHeroSvg from '../icons/MultiLayerIcon.vue'
 import { onMounted } from 'vue'
 import { useScrollAnimation } from '@/composables/useScrollAnimation'
+import { useSettings } from '@/config/settings'
+
+const { getGithubUrl } = useSettings()
 
 onMounted(() => {
   const { fadeInUp, staggerChildren, parallaxBackground } = useScrollAnimation()
@@ -57,13 +60,12 @@ onMounted(() => {
 
   // Add continuous floating parallax effect to background
   parallaxBackground('.banner-knowledge__background svg', {
-    x: 15,
-    y: 20,
-    duration: 4,
+    x: 4,
+    y: 5,
+    duration: 23,
     ease: 'sine.inOut',
     repeat: -1,
-    yoyo: true,
-    scrub: false
+    yoyo: true
   })
 })
 </script>

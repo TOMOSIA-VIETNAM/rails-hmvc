@@ -185,7 +185,6 @@ watch(isInViewport, (newValue) => {
     flex: 0 0 60%;
     overflow: hidden;
     position: relative;
-    padding: 20px;
     background-color: #f8f9fa;
     border-radius: 1.5rem;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;

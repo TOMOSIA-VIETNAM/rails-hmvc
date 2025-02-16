@@ -160,7 +160,7 @@ onMounted(() => {
       z-index: 2;
       color: var(--c-gray-900);
       font-weight: 300;
-      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-size: clamp(1.1rem, 2vw, 1.2rem);
       border-left: 10px solid #e5e5e5;
       margin-top: 1.3rem;
       margin-left: -15px;

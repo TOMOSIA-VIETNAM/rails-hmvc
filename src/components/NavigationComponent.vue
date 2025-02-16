@@ -1,45 +1,32 @@
 <template>
   <nav class="navbar navbar-expand-lg py-0 bg-dark">
     <div class="container">
-      <a class="navbar-brand py-0" href="#">
+      <a class="navbar-brand py-0" :href="getCompanyInfo().WEBSITE" target="_blank">
         <img src="@/assets/images/logo-tms.png" alt="logo" height="72" />
         <span class="badge-corp">{{ $t('hero.title') }}</span>
       </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link">
-              <font-awesome-icon :icon="faGithub" size="lg" fade />
-              <span>&nbsp; {{ $t('navigation.version') }}</span>
-            </a>
-          </li>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" :href="getGithubUrl()" target="_blank">
+            <font-awesome-icon :icon="faGithub" size="lg" fade />
+            <span>&nbsp; {{ getVersion() }}</span>
+          </a>
+        </li>
 
-          <li class="nav-item">
-            <a class="nav-link">{{ $t('navigation.documentation') }}</a>
-          </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link">{{ $t('navigation.documentation') }}</a>
+        </li> -->
 
-          <li class="nav-item d-flex align-items-center">
-            <LanguageSwitcherComponent class="light" />
-          </li>
+        <li class="nav-item d-flex align-items-center">
+          <LanguageSwitcherComponent class="light" />
+        </li>
 
-          <!-- <li class="nav-item">
-            <a class="nav-link">
-              <a link="#" class="btn btn--rounded btn-primary">{{ $t('navigation.contact') }}</a>
-            </a>
-          </li> -->
-        </ul>
-      </div>
+        <!-- <li class="nav-item">
+          <a class="nav-link">
+            <a link="#" class="btn btn--rounded btn-primary">{{ $t('navigation.contact') }}</a>
+          </a>
+        </li> -->
+      </ul>
     </div>
   </nav>
 </template>
@@ -48,7 +35,10 @@
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { onMounted } from 'vue'
 import { useScrollAnimation } from '@/composables/useScrollAnimation'
+import { useSettings } from '@/config/settings'
 import LanguageSwitcherComponent from '@/components/common/LanguageSwitcherComponent.vue'
+
+const { getGithubUrl, getVersion, getCompanyInfo } = useSettings()
 
 onMounted(() => {
   const { fadeInUp, staggerChildren } = useScrollAnimation()
@@ -63,9 +53,9 @@ onMounted(() => {
 
   // Animate nav items with stagger effect
   staggerChildren('.navbar-nav', '.nav-item', {
-    duration: 0.5,
+    duration: 1,
     stagger: 0.1,
-    y: -20,
+    y: 0,
     delay: 0.4,
     ease: 'power2.out'
   })
@@ -74,7 +64,9 @@ onMounted(() => {
 
 <style scoped>
 .navbar-nav {
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
 
 .navbar-brand {
@@ -89,7 +81,7 @@ onMounted(() => {
   background-color: rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.7);
   font-size: 13px;
-  font-weight: 100;
+  font-weight: 300;
   margin-left: 10px;
   border-radius: 4px;
   padding: 0.35em 0.65em;

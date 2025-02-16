@@ -17,7 +17,7 @@ export default {
     heading: 'Rails Superhero Mode: Activated!',
     description: 'Why juggle multiple frameworks when you can be a Rails ninja?',
     highlight: 'One framework to rule them all, one HMVC to find them',
-    installButton: 'Install for free',
+    installButton: 'Get Super Powers! ⚡️',
     demoButton: "Let's see demo"
   },
   architecture: {
@@ -51,12 +51,12 @@ export default {
     title: 'Meet the wizards behind the magic ✨',
     founder: {
       name: 'Mr. Anh Nguyen',
-      position: 'CTO, HMVC Founder',
+      position: 'CTO, Founder',
       quote: "I created HMVC with a vision to solve the inherent complexity issues in large-scale applications. By introducing a hierarchical structure to the traditional MVC pattern, we've established a framework-agnostic approach that brings clarity and maintainability to complex codebases. It's incredibly rewarding to see how this architecture has helped numerous teams reduce technical debt and build more sustainable applications."
     },
     maintainer: {
       name: 'Mr. Minh Tang',
-      position: 'Leader Architect, HMVC Maintainer',
+      position: 'Lead Architect, Maintainer',
       quote: "Taking the foundational principles, I evolved it into a powerful, modern architecture that addresses today's development challenges. My focus has been on enhancing developer experience through clear abstractions and maintainable patterns. The architecture's flexibility allows teams to gradually adopt it in existing projects, making it an ideal solution for both new developments and legacy system modernization."
     }
   },
@@ -115,6 +115,10 @@ export default {
           'Each operation encapsulates a specific business workflow, breaking it down into clear, sequential steps. This structured approach enhances code readability, facilitates testing, and makes complex business processes more manageable. Operations promote code reuse and make your application\'s business logic more maintainable and scalable.'
         ]
       }
+    },
+    cta: {
+      ready: 'Ready to level up your Rails architecture?',
+      getStarted: 'Get Started with HMVC'
     }
   },
   common: {
@@ -123,7 +127,23 @@ export default {
     backToTop: 'Back to top'
   },
   footer: {
-    copyright: 'Copyright © 2017 - {year} HMVC',
-    developedBy: 'Developed by the Ruby team at <a href="https://tomosia.com" target="_blank" class="text-decoration-none">TOMOSIA VIETNAM</a>'
+    brand: {
+      description: 'TOMOSIA is a collective of talented engineers with diverse IT expertise. Our mission is to leverage individual knowledge, experience, team capabilities, and organizational learning to deliver optimal solutions for our clients\' IT challenges.'
+    },
+    quickLinks: {
+      title: 'Quick Links',
+      about: 'About Us',
+      company: 'Company',
+      projects: 'Projects',
+      process: 'Our Process'
+    },
+    contact: {
+      title: 'Contact Us',
+      mainOffice: 'Head Office: 2F, Au Viet Building, No.1 Le Duc Tho Street, Mai Dich Ward, Cau Giay, Ha Noi',
+      branchOffice: 'Branch Office: 5F, Lighthouse Building, No.192 Xo Viet Nghe Tinh Street, Hoa Cuong, Hai Chau, Da Nang',
+      phone: '(+84) 243-201-6955'
+    },
+    copyright: 'Developed since {year}',
+    developedBy: 'Developed by the RUBY team at <a href="https://tomosia.com" target="_blank" class="text-decoration-none">TOMOSIA VIETNAM</a>'
   }
 }
