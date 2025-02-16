@@ -16,7 +16,9 @@
           </div>
         </div>
         <div class="col-2 text-end">
-          <img class="hero-icon" src="@/assets/images/logo-dark.png" alt="logo" height="95" />
+          <div class="logo-container">
+            <img class="hero-icon" src="@/assets/images/logo.png" alt="logo" />
+          </div>
         </div>
       </div>
     </div>
@@ -80,7 +82,6 @@ onMounted(() => {
     }
 
     .hero-icon {
-      margin-right: 35px;
       @media (max-width: 1399px) {
         display: none;
       }
@@ -111,6 +112,25 @@ onMounted(() => {
         display: flex;
         align-items: center;
       }
+    }
+  }
+
+  .logo-container {
+    aspect-ratio: 1;
+    width: 100px;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-left: 70px;
+
+    .hero-icon {
+      width: 80%;
+      height: 80%;
+      object-fit: contain;
+      display: block;
     }
   }
 }
