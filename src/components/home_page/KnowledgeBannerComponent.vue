@@ -15,7 +15,7 @@
       </div>
 
       <div class="banner-knowledge__buttons">
-        <a href="" class="btn btn-light btn--rounded">{{ $t('knowledgeBanner.installButton') }}</a>
+        <a :href="getGithubUrl()" target="_blank" class="btn btn-light btn--rounded">{{ $t('knowledgeBanner.installButton') }}</a>
         <a href="" class="btn btn-outline-light btn--rounded">{{ $t('knowledgeBanner.demoButton') }}</a>
       </div>
     </div>
@@ -26,6 +26,9 @@
 import HeaderHeroSvg from '../icons/MultiLayerIcon.vue'
 import { onMounted } from 'vue'
 import { useScrollAnimation } from '@/composables/useScrollAnimation'
+import { useSettings } from '@/config/settings'
+
+const { getGithubUrl } = useSettings()
 
 onMounted(() => {
   const { fadeInUp, staggerChildren, parallaxBackground } = useScrollAnimation()

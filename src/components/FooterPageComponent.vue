@@ -7,10 +7,10 @@
 
       <div class="footer-bottom row">
         <div class="col-12 col-md-6">
-          <p class="mb-0">{{ $t('footer.copyright', { year }) }}</p>
+          <p class="mb-0">{{ $t('footer.copyright', { year: getCopyrightYear() }) }}</p>
         </div>
         <div class="col-12 col-md-6 text-md-end">
-          <p class="mb-0" v-html="$t('footer.developedBy')"></p>
+          <p class="mb-0" v-html="$t('footer.developedBy', { company: getCompanyInfo().NAME })"></p>
         </div>
       </div>
     </div>
@@ -63,8 +63,8 @@
 </style>
 
 <script setup>
-import { useLanguage } from '@/i18n'
+import { useSettings } from '@/config/settings'
 import LanguageSwitcherComponent from '@/components/common/LanguageSwitcherComponent.vue'
 
-const year = new Date().getFullYear()
+const { getCopyrightYear, getCompanyInfo } = useSettings()
 </script>

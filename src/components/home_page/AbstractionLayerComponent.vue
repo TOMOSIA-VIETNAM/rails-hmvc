@@ -115,7 +115,7 @@ end"
       <!-- CTA Section -->
       <div class="abs-layer__cta text-center">
         <p class="abs-layer__cta-text">{{ $t('abstractionLayer.cta.ready') }}</p>
-        <a href="#" class="btn btn-primary btn--rounded px-4 py-2">
+        <a :href="getGithubUrl()" target="_blank" class="btn btn-primary btn--rounded px-4 py-2">
           <font-awesome-icon :icon="faRocket" class="me-2" />
           {{ $t('abstractionLayer.cta.getStarted') }}
         </a>
@@ -128,6 +128,9 @@ end"
 import { onMounted } from 'vue'
 import { useScrollAnimation } from '@/composables/useScrollAnimation'
 import { faRocket } from '@fortawesome/free-solid-svg-icons'
+import { useSettings } from '@/config/settings'
+
+const { getGithubUrl } = useSettings()
 
 onMounted(() => {
   const { fadeInUp, animateCodeBlock, animateFeatureBox } = useScrollAnimation()
@@ -165,7 +168,6 @@ onMounted(() => {
   fadeInUp('.abs-layer__cta', {
     y: 30,
     duration: 0.8,
-    delay: 0.6,
     ease: 'power2.out'
   })
 })

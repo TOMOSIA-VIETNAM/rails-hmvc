@@ -10,7 +10,7 @@
           <h1 class="hero-subtitle">{{ $t('hero.header.subtitle') }}</h1>
           <div class="hero-control row">
             <div class="hero-control__wrapper">
-              <a href="https://github.com/TOMOSIA-VIETNAM/hmvc-rails" target="_blank" class="btn btn--rounded btn-dark hero-control__install-btn">
+              <a :href="getGithubUrl()" target="_blank" class="btn btn--rounded btn-dark hero-control__install-btn">
                 {{ $t('hero.header.installButton') }}
               </a>
               <p class="hero-control__desc" v-html="$t('hero.header.description')"></p>
@@ -31,6 +31,9 @@
 import HeaderHeroSvg from './icons/MultiLayerIcon.vue'
 import { onMounted } from 'vue'
 import { useScrollAnimation } from '@/composables/useScrollAnimation'
+import { useSettings } from '@/config/settings'
+
+const { getGithubUrl } = useSettings()
 
 onMounted(() => {
   const { animateHeaderHero } = useScrollAnimation()
@@ -101,20 +104,18 @@ onMounted(() => {
 
       &__install-btn {
         flex-shrink: 0;
-        font-size: clamp(0.875rem, 1.2vw, 1.1rem);
-        padding: 0.75rem 1.5rem;
-        font-weight: 400;
+        font-size: clamp(1rem, 1.2vw, 1.1rem);
+        padding: clamp(.5rem,1.5vw,.75rem) clamp(1rem,3vw,2rem);
+        font-weight: 300;
         letter-spacing: 0.5px;
         white-space: nowrap;
-        background: linear-gradient(45deg, var(--c-gray-900), #000);
         border: none;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease;
 
         &:hover {
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-          background: linear-gradient(45deg, #000, var(--c-gray-900));
+          box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
         }
 
         .svg-inline--fa {

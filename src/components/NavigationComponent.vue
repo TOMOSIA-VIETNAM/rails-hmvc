@@ -1,15 +1,15 @@
 <template>
   <nav class="navbar navbar-expand-lg py-0 bg-dark">
     <div class="container">
-      <a class="navbar-brand py-0" href="#">
+      <a class="navbar-brand py-0" :href="getCompanyInfo().WEBSITE" target="_blank">
         <img src="@/assets/images/logo-tms.png" alt="logo" height="72" />
         <span class="badge-corp">{{ $t('hero.title') }}</span>
       </a>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/TOMOSIA-VIETNAM/hmvc-rails" target="_blank">
+          <a class="nav-link" :href="getGithubUrl()" target="_blank">
             <font-awesome-icon :icon="faGithub" size="lg" fade />
-            <span>&nbsp; {{ $t('navigation.version') }}</span>
+            <span>&nbsp; {{ getVersion() }}</span>
           </a>
         </li>
 
@@ -35,7 +35,10 @@
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { onMounted } from 'vue'
 import { useScrollAnimation } from '@/composables/useScrollAnimation'
+import { useSettings } from '@/config/settings'
 import LanguageSwitcherComponent from '@/components/common/LanguageSwitcherComponent.vue'
+
+const { getGithubUrl, getVersion, getCompanyInfo } = useSettings()
 
 onMounted(() => {
   const { fadeInUp, staggerChildren } = useScrollAnimation()

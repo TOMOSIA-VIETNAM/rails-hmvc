@@ -17,7 +17,7 @@ export default {
     heading: 'Rails Superhero Mode: Activated!',
     description: 'Why juggle multiple frameworks when you can be a Rails ninja?',
     highlight: 'One framework to rule them all, one HMVC to find them',
-    installButton: 'Install for free',
+    installButton: 'Get Super Powers! ⚡️',
     demoButton: "Let's see demo"
   },
   architecture: {
@@ -127,7 +127,7 @@ export default {
     backToTop: 'Back to top'
   },
   footer: {
-    copyright: 'Copyright © 2017 - {year} HMVC',
+    copyright: 'Copyright © {year} HMVC',
     developedBy: 'Developed by the Ruby team at <a href="https://tomosia.com" target="_blank" class="text-decoration-none">TOMOSIA VIETNAM</a>'
   }
 }

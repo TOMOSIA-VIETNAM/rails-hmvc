@@ -126,5 +126,9 @@ export default {
     loading: 'Đang tải...',
     error: 'Đã xảy ra lỗi',
     backToTop: 'Lên đầu trang'
+  },
+  footer: {
+    copyright: 'Bản quyền © {year} HMVC',
+    developedBy: 'Phát triển bởi nhóm Ruby tại <a href="https://tomosia.com" target="_blank" class="text-decoration-none">TOMOSIA VIỆT NAM</a>'
   }
 }

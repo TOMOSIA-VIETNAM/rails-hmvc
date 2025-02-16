@@ -17,7 +17,7 @@ export default {
     heading: 'Railsスーパーヒーローモード：起動！',
     description: '複数のフレームワークを扱う必要はありません。Railsニンジャになりましょう！',
     highlight: '全てを支配する1つのフレームワーク、1つのHMVCがそれらを見つける',
-    installButton: '無料でインストール',
+    installButton: 'スーパーパワーを手に入れよう！⚡️',
     demoButton: 'デモを見る'
   },
   architecture: {
@@ -127,7 +127,7 @@ export default {
     backToTop: 'トップへ戻る'
   },
   footer: {
-    copyright: '著作権 © 2017 - {year} HMVC',
+    copyright: '著作権 © {year} HMVC',
     developedBy: 'Ruby チームによって開発 <a href="https://tomosia.com" target="_blank" class="text-decoration-none">TOMOSIA VIETNAM</a>'
   }
 }
