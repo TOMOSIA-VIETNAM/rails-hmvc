@@ -128,7 +128,23 @@ export default {
     backToTop: 'Lên đầu trang'
   },
   footer: {
-    copyright: 'Bản quyền © {year} HMVC',
-    developedBy: 'Phát triển bởi nhóm Ruby tại <a href="https://tomosia.com" target="_blank" class="text-decoration-none">TOMOSIA VIỆT NAM</a>'
+    brand: {
+      description: 'TOMOSIA là tập hợp những kỹ sư tài năng với chuyên môn CNTT đa dạng. Sứ mệnh của chúng tôi là tận dụng kiến thức, kinh nghiệm cá nhân, năng lực đội ngũ và học tập tổ chức để mang đến giải pháp tối ưu cho các thách thức CNTT của khách hàng.'
+    },
+    quickLinks: {
+      title: 'Liên Kết Nhanh',
+      about: 'Về Chúng Tôi',
+      company: 'Công Ty',
+      projects: 'Dự Án',
+      process: 'Quy Trình'
+    },
+    contact: {
+      title: 'Liên Hệ',
+      mainOffice: 'Trụ sở chính: Tầng 2, Tòa nhà Au Viet, Số 1 Lê Đức Thọ, Phường Mai Dịch, Cầu Giấy, Hà Nội',
+      branchOffice: 'Chi nhánh: Tầng 5, Tòa nhà Lighthouse, Số 192 Xô Viết Nghệ Tĩnh, Hòa Cường, Hải Châu, Đà Nẵng',
+      phone: '(+84) 243-201-6955'
+    },
+    copyright: 'Phát triển từ năm {year}',
+    developedBy: 'Phát triển bởi nhóm RUBY tại <a href="https://tomosia.com" target="_blank" class="text-decoration-none">TOMOSIA VIET NAM</a>'
   }
 }

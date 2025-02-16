@@ -127,7 +127,23 @@ export default {
     backToTop: 'トップへ戻る'
   },
   footer: {
-    copyright: '著作権 © {year} HMVC',
-    developedBy: 'Ruby チームによって開発 <a href="https://tomosia.com" target="_blank" class="text-decoration-none">TOMOSIA VIETNAM</a>'
+    brand: {
+      description: 'TOMOSIAは、様々な情報技術を持つ才能あるエンジニアの集まりです。\n個々の知識と経験、そしてチーム、さらに組織学習としてそれぞれが持つ能力を活かして、お客様が抱えるIT課題に対して最適な解決方法を導き出すことを使命と考えています。'
+    },
+    quickLinks: {
+      title: 'クイックリンク',
+      about: '事業内容',
+      company: '会社概要',
+      projects: '実績',
+      process: 'ご依頼の流れ'
+    },
+    contact: {
+      title: '連絡先',
+      mainOffice: '本社　2F, Au Viet Building, No.1 Le Duc Tho Street, Mai Dich Ward, Cau Giay, Ha Noi',
+      branchOffice: '支社　5F, Lighthouse Building, No.192 Xo Viet Nghe Tinh Street, Hoa Cuong, Hai Chau, Da Nang',
+      phone: '(+84) 243-201-6955'
+    },
+    copyright: '{year}年から開発',
+    developedBy: 'RUBY チームによって開発 <a href="https://tomosia.com" target="_blank" class="text-decoration-none">TOMOSIA VIETNAM</a>'
   }
 }

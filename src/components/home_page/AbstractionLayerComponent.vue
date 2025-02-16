@@ -96,8 +96,8 @@ end"
         <div class="col-md-6 col-12">
           <highlightjs
             language="ruby"
-            code="# app/operations/auth/login_operation.rb
-class Auth::LoginOperation < ApplicationOperation
+            code="# app/operations/sessions/create_operation.rb
+class Sessions::CreateOperation < ApplicationOperation
   attr_reader :user
 
   def call

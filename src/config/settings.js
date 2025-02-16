@@ -13,9 +13,9 @@ export const COMPANY = {
 
 export const SOCIAL_LINKS = {
   GITHUB: COMPANY.GITHUB,
-  FACEBOOK: 'https://facebook.com/tomosia',
-  TWITTER: 'https://twitter.com/tomosia',
-  LINKEDIN: 'https://linkedin.com/company/tomosia'
+  FACEBOOK: 'https://www.facebook.com/tomosiavn',
+  TIKTOK: 'https://www.tiktok.com/@tomosiavn',
+  LINKEDIN: 'https://www.linkedin.com/company/tomosiavietnam/'
 }
 
 export const APP_CONFIG = {
@@ -51,13 +51,16 @@ export const useSettings = () => {
   const getCompanyInfo = () => COMPANY
   const getCurrentYear = () => new Date().getFullYear()
   const getCopyrightYear = () => `${APP_CONFIG.COPYRIGHT_YEAR} - ${getCurrentYear()}`
+  const getSocialLink = (platform) => SOCIAL_LINKS[platform] || '#'
+
   return {
     getGithubUrl,
     getDocUrl,
     getVersion,
     getCompanyInfo,
     getCurrentYear,
-    getCopyrightYear
+    getCopyrightYear,
+    getSocialLink
   }
 }
 

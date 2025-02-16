@@ -53,9 +53,9 @@ onMounted(() => {
 
   // Animate nav items with stagger effect
   staggerChildren('.navbar-nav', '.nav-item', {
-    duration: 0.5,
+    duration: 1,
     stagger: 0.1,
-    y: -20,
+    y: 0,
     delay: 0.4,
     ease: 'power2.out'
   })
@@ -81,7 +81,7 @@ onMounted(() => {
   background-color: rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.7);
   font-size: 13px;
-  font-weight: 100;
+  font-weight: 300;
   margin-left: 10px;
   border-radius: 4px;
   padding: 0.35em 0.65em;

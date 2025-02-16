@@ -637,10 +637,10 @@ export const useScrollAnimation = () => {
       opacity: 0
     }, '-=0.6')
 
-    tl.from(`${element} .hero-icon`, {
+    tl.from(`${element} .logo-container`, {
       scale: 0.2,
       opacity: 0,
-      duration: 0.8,
+      duration: 0.7,
       ease: "back.out(1.3)"
     }, '-=1')
 
