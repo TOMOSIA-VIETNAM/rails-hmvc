@@ -25,6 +25,15 @@
 
 <script setup>
 import HeaderHeroSvg from './icons/MultiLayerIcon.vue'
+import { onMounted } from 'vue'
+import { useScrollAnimation } from '@/composables/useScrollAnimation'
+
+onMounted(() => {
+  const { animateHeaderHero } = useScrollAnimation()
+
+  // Initialize header animations
+  animateHeaderHero('.header-hero')
+})
 </script>
 
 <style lang="scss" scoped>
@@ -32,6 +41,8 @@ import HeaderHeroSvg from './icons/MultiLayerIcon.vue'
   min-height: 570px;
   padding-top: 144px;
   padding-bottom: 96px;
+  position: relative;
+  overflow: hidden;
 
   &__background {
     position: absolute;

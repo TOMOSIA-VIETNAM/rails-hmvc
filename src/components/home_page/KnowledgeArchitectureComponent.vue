@@ -26,6 +26,21 @@
 
 <script setup lang="ts">
 import EnhancedSliderComponent from '@/components/home_page/EnhancedSliderComponent.vue';
+import { onMounted } from 'vue'
+import { useScrollAnimation } from '@/composables/useScrollAnimation'
+
+onMounted(() => {
+  const { revealTitle, splitTextReveal, fadeInUp } = useScrollAnimation()
+
+  // Animate heading with highlight effect
+  revealTitle('.knowledge-arch__heading', '.knowledge-arch__heading-highlight')
+
+  // Animate subheading with split text effect
+  splitTextReveal('.knowledge-arch__subheading')
+
+  // Animate slider
+  fadeInUp('.enhanced-slider')
+})
 </script>
 
 <style lang="scss" scoped>
@@ -47,6 +62,7 @@ import EnhancedSliderComponent from '@/components/home_page/EnhancedSliderCompon
     display: inline-block;
     white-space: nowrap;
     line-height: 1.2;
+    will-change: transform, opacity; // Optimize performance
 
     &-highlight {
       position: absolute;
@@ -55,8 +71,8 @@ import EnhancedSliderComponent from '@/components/home_page/EnhancedSliderCompon
       right: -0.5em;
       height: 0.3em;
       background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-      opacity: 0.2;
-      z-index: 0;
+      transform-origin: left;
+      will-change: transform, opacity; // Optimize performance
     }
   }
 
@@ -66,6 +82,33 @@ import EnhancedSliderComponent from '@/components/home_page/EnhancedSliderCompon
     letter-spacing: 2px;
     color: var(--c-primary);
     margin: 0;
+    will-change: transform, opacity; // Optimize performance
+
+    &-small {
+      display: inline-block; // Help with animation
+    }
+  }
+
+  .enhanced-slider {
+    will-change: transform, opacity; // Optimize performance
+  }
+}
+
+.architecture-section {
+  &__title,
+  &__description {
+    opacity: 0; // Start invisible for animation
+  }
+
+  &__graph {
+    opacity: 0; // Start invisible for animation
+    .graph-line {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+    }
+    .data-point {
+      transform-origin: center;
+    }
   }
 }
 </style>

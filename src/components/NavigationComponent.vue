@@ -46,11 +46,42 @@
 
 <script setup>
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { onMounted } from 'vue'
+import { useScrollAnimation } from '@/composables/useScrollAnimation'
+
+onMounted(() => {
+  const { fadeInUp, staggerChildren } = useScrollAnimation()
+
+  // Animate logo and badge
+  fadeInUp('.navbar-brand', {
+    y: -20,
+    duration: 0.8,
+    ease: 'power3.out',
+    delay: 0.2
+  })
+
+  // Animate nav items with stagger effect
+  staggerChildren('.navbar-nav', '.nav-item', {
+    duration: 0.5,
+    stagger: 0.1,
+    y: -20,
+    delay: 0.4,
+    ease: 'power2.out'
+  })
+})
 </script>
 
 <style scoped>
 .navbar-nav {
   align-items: center;
+}
+
+.navbar-brand {
+  will-change: transform, opacity;
+}
+
+.nav-item {
+  will-change: transform, opacity;
 }
 
 .badge-corp {
@@ -68,6 +99,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
   color: rgba(255, 255, 255, 0.6);
   font-weight: 300;
   padding: 1rem 0.75rem !important;
+  transition: color 0.3s ease;
 
   &:hover {
     color: #fff;

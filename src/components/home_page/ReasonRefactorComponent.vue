@@ -70,6 +70,41 @@
 
 <script setup>
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import { onMounted } from 'vue'
+import { useScrollAnimation } from '@/composables/useScrollAnimation'
+
+onMounted(() => {
+  const { fadeInUpOnLoad, fadeInUp, staggerChildren } = useScrollAnimation()
+  const baseDelay = 1.3
+
+  // Animate "Why choose HMVC" title with fadeInUp
+  fadeInUp('.why-choose__title', {
+    y: 50,
+    duration: 1,
+    delay: baseDelay,
+    ease: 'power3.out',
+    start: 'top 85%'
+  })
+
+  // Animate heading immediately on load
+  fadeInUpOnLoad('.reason-refactor__heading', {
+    y: 50,
+    duration: 1,
+    delay: baseDelay + 0.3,
+    ease: 'power3.out',
+    start: 'top 85%'
+  })
+
+  // Animate blocks with stagger effect
+  staggerChildren('.reason-refactor__blocks', '.reason-refactor__block:not(.d-md-none)',{
+    duration: 0.6,
+    stagger: 0.2,
+    y: 5
+  })
+
+  // Animate video section
+  fadeInUp('.reason-refactor__video')
+})
 </script>
 
 <style lang="scss" scoped>
@@ -88,6 +123,15 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
       background: #161616;
       text-transform: uppercase;
       color: #fff;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      will-change: transform, opacity;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
 
       @media (max-width: 768px) {
         margin: -80px auto 40px;
@@ -127,6 +171,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
   &__block {
     line-height: 25px;
     margin-bottom: 50px;
+    will-change: transform, opacity;
 
     @media (max-width: 768px) {
       margin-bottom: 30px;
@@ -151,6 +196,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
   }
 
   &__video {
+    will-change: transform, opacity;
     @media (max-width: 768px) {
       order: 1;
     }
@@ -163,8 +209,6 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
     height: 0;
     overflow: hidden;
     border-radius: 12px;
-    // box-shadow: 0px 0px 67px 0px rgba(0,0,0,0.35);
-    // box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 30px 12px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
 
     .responsive-iframe {
