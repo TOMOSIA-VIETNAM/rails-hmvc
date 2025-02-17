@@ -6,14 +6,14 @@
       <div class="row owner-say__feedback">
         <div class="col-12 col-md-9">
           <div class="row align-items-center ms-3 ms-md-0">
-            <div class="col-auto ps-0">
+            <!-- <div class="col-auto ps-0">
               <img
                 class="owner-say__feedback-photo"
                 src="@/assets/images/users/founder.png"
                 alt="owner"
                 loading="lazy"
               />
-            </div>
+            </div> -->
             <div class="col z-1">
               <h4 class="owner-say__feedback-owner">{{ $t('ownerSay.founder.name') }}</h4>
               <span class="owner-say__feedback-position">{{ $t('ownerSay.founder.position') }}</span>
@@ -29,14 +29,14 @@
       <div class="row owner-say__feedback">
         <div class="col-12 col-md-9">
           <div class="row align-items-center ms-3 ms-md-0">
-            <div class="col-auto ps-0">
+            <!-- <div class="col-auto ps-0">
               <img
                 class="owner-say__feedback-photo"
                 src="@/assets/images/users/maintainer.png"
                 alt="owner"
                 loading="lazy"
               />
-            </div>
+            </div> -->
             <div class="col z-1">
               <h4 class="owner-say__feedback-owner">{{ $t('ownerSay.maintainer.name') }}</h4>
               <span class="owner-say__feedback-position">{{ $t('ownerSay.maintainer.position') }}</span>
