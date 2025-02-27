@@ -56,18 +56,13 @@ const slides = [
   {
     id: 2,
     key: 'overviewLayer',
-    imageSrc: new URL('@/assets/images/overview-layer.png', import.meta.url).href
+    imageSrc: new URL('@/assets/images/overview-and-structure.png', import.meta.url).href
   },
   {
     id: 3,
     key: 'flowControl',
     imageSrc: new URL('@/assets/images/flow-control.gif', import.meta.url).href
   },
-  {
-    id: 4,
-    key: 'structureProject',
-    imageSrc: new URL('@/assets/images/structure-project.png', import.meta.url).href
-  }
 ]
 
 const currentIndex = ref(0)
@@ -330,4 +325,3 @@ watch(isInViewport, (newValue) => {
   }
 }
 </style>
-
