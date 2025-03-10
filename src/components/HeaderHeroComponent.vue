@@ -5,7 +5,7 @@
     </div>
     <div class="header-hero__content container pb-5">
       <div class="row">
-        <div class="col-10">
+        <div class="col-12 col-md-10">
           <h1 class="hero-title">{{ $t('hero.header.title') }}</h1>
           <h1 class="hero-subtitle">{{ $t('hero.header.subtitle') }}</h1>
 
@@ -31,7 +31,7 @@
             </div>
           </div>
         </div>
-        <div class="col-2 text-end">
+        <div class="col-md-2 text-end d-none d-md-block">
           <a :href="getGithubUrl()" target="_blank" class="d-block">
             <div class="logo-container">
               <img class="hero-icon" src="@/assets/images/logo.png" alt="logo" />
