@@ -3,24 +3,40 @@
     <div class="header-hero__background">
       <HeaderHeroSvg />
     </div>
-    <div class="header-hero__content container">
+    <div class="header-hero__content container pb-5">
       <div class="row">
         <div class="col-10">
           <h1 class="hero-title">{{ $t('hero.header.title') }}</h1>
           <h1 class="hero-subtitle">{{ $t('hero.header.subtitle') }}</h1>
-          <div class="hero-control row">
-            <div class="hero-control__wrapper">
-              <a :href="getGithubUrl()" target="_blank" class="btn btn--rounded btn-dark hero-control__install-btn">
-                {{ $t('hero.header.installButton') }}
-              </a>
-              <p class="hero-control__desc" v-html="$t('hero.header.description')"></p>
+
+          <!-- Pain Points -->
+          <div class="hero-features">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <font-awesome-icon :icon="faHandSparkles" />
+              </div>
+              <span>{{ $t('hero.painPoints.p1') }}</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <font-awesome-icon :icon="faSignsPost" />
+              </div>
+              <span>{{ $t('hero.painPoints.p2') }}</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <font-awesome-icon :icon="faCode" />
+              </div>
+              <span>{{ $t('hero.painPoints.p3') }}</span>
             </div>
           </div>
         </div>
         <div class="col-2 text-end">
-          <div class="logo-container">
-            <img class="hero-icon" src="@/assets/images/logo.png" alt="logo" />
-          </div>
+          <a :href="getGithubUrl()" target="_blank" class="d-block">
+            <div class="logo-container">
+              <img class="hero-icon" src="@/assets/images/logo.png" alt="logo" />
+            </div>
+          </a>
         </div>
       </div>
     </div>
@@ -29,17 +45,25 @@
 
 <script setup>
 import HeaderHeroSvg from './icons/MultiLayerIcon.vue'
+import { useSettings } from '@/config/settings'
+import { faHandSparkles, faSignsPost, faCode } from '@fortawesome/free-solid-svg-icons'
 import { onMounted } from 'vue'
 import { useScrollAnimation } from '@/composables/useScrollAnimation'
-import { useSettings } from '@/config/settings'
 
 const { getGithubUrl } = useSettings()
 
-onMounted(() => {
-  const { animateHeaderHero } = useScrollAnimation()
 
-  // Initialize header animations
-  animateHeaderHero('.header-hero')
+onMounted(() => {
+  const { animateHeroFeatures, animateHeroText, animateHeroBackground } = useScrollAnimation()
+
+  // Animate background
+  animateHeroBackground('.header-hero__background svg')
+
+  // Animate hero title and subtitle
+  animateHeroText('.hero-title', '.hero-subtitle')
+
+  // Animate hero features
+  animateHeroFeatures('.hero-features', '.feature-item')
 })
 </script>
 
@@ -72,18 +96,28 @@ onMounted(() => {
     z-index: 2;
 
     .hero-title {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      letter-spacing: -0.75px;
-      font-size: clamp(3rem, 5vw, 3.6rem);
-      color: var(--c-gray-900);
-      text-transform: capitalize;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      font-size: clamp(3rem, 5.5vw, 4.2rem);
+      color: #0f172a;
+      line-height: 1.1;
+      position: relative;
+      margin-bottom: 1.5rem;
+      display: inline-block;
     }
 
     .hero-subtitle {
-      font-weight: 100;
-      font-size: clamp(1.2rem, 3vw, 1.813rem);
-      margin-top: 1.25rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 200;
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      color: #475569;
+      letter-spacing: -0.2px;
+      line-height: 1.5;
+      max-width: 650px;
+      opacity: 0.9;
+      margin-bottom: 2.5rem;
+      position: relative;
     }
 
     .hero-icon {
@@ -155,6 +189,48 @@ onMounted(() => {
   }
 }
 
+.hero-features {
+  margin: 3rem 0 2.5rem;
+  display: grid;
+  gap: 1rem;
+  max-width: 600px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: rgba(59, 130, 246, 0.05);
+  border-left: 3px solid #3B82F6;
+  border-radius: 0 8px 8px 0;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(59, 130, 246, 0.1);
+    transform: translateX(5px);
+  }
+
+  .feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #3B82F6;
+    border-radius: 6px;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--c-text-primary);
+    line-height: 1.5;
+  }
+}
+
 @media (max-width: 768px) {
   .header-hero {
     &__content {
@@ -175,6 +251,28 @@ onMounted(() => {
           }
         }
       }
+    }
+  }
+
+  .hero-features {
+    margin: 2rem 0;
+  }
+
+  .feature-item {
+    padding: 0.625rem 1rem;
+
+    .feature-icon {
+      width: 28px;
+      height: 28px;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    span {
+      font-size: 0.875rem;
     }
   }
 }

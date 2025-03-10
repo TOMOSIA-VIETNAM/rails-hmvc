@@ -659,6 +659,128 @@ export const useScrollAnimation = () => {
     return tl
   }
 
+  const animateHeroFeatures = (containerSelector, itemSelector) => {
+    const container = document.querySelector(containerSelector)
+    const items = container?.querySelectorAll(itemSelector)
+
+    if (container && items?.length) {
+      // Set initial states
+      gsap.set(items, {
+        opacity: 0,
+        x: -30,
+        scale: 0.95
+      })
+
+      // Create timeline for smooth sequence
+      const tl = gsap.timeline({
+        defaults: {
+          duration: 0.8,
+          ease: 'power3.out'
+        }
+      })
+
+      // Animate each feature item with stagger
+      tl.to(items, {
+        opacity: 1,
+        x: 0,
+        scale: 1,
+        stagger: 0.2,
+        duration: 0.7,
+        delay: 0.6 // Delay after page load
+      })
+
+      // Add hover animation
+      items.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+          gsap.to(item, {
+            scale: 1.02,
+            duration: 0.3,
+            ease: 'power2.out'
+          })
+        })
+
+        item.addEventListener('mouseleave', () => {
+          gsap.to(item, {
+            scale: 1,
+            duration: 0.3,
+            ease: 'power2.out'
+          })
+        })
+      })
+    }
+  }
+
+  const animateHeroText = (titleSelector, subtitleSelector) => {
+    const title = document.querySelector(titleSelector)
+    const subtitle = document.querySelector(subtitleSelector)
+
+    if (title && subtitle) {
+      // Set initial states
+      gsap.set([title, subtitle], {
+        opacity: 0,
+        y: 30
+      })
+
+      // Create timeline for text animations
+      const tl = gsap.timeline({
+        defaults: {
+          duration: 1,
+          ease: 'power3.out'
+        }
+      })
+
+      // Animate title first
+      tl.to(title, {
+        opacity: 1,
+        y: 0,
+        delay: 0.2 // Slight delay after page load
+      })
+
+      // Then animate subtitle with slight overlap
+      .to(subtitle, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8
+      }, '-=0.5') // Start before title animation completes
+    }
+  }
+
+  const animateHeroBackground = (selector) => {
+    const bgElement = document.querySelector(selector)
+
+    if (bgElement) {
+      // Initial fade in animation
+      gsap.from(bgElement, {
+        opacity: 0,
+        scale: 1.1,
+        duration: 1.5,
+        ease: 'power2.out'
+      })
+
+      // Continuous floating animation
+      gsap.to(bgElement, {
+        y: 15,
+        x: 10,
+        rotation: 1,
+        duration: 6,
+        ease: 'sine.inOut',
+        repeat: -1,
+        yoyo: true,
+        transformOrigin: 'center center'
+      })
+
+      // Optional subtle scale breathing effect
+      gsap.to(bgElement, {
+        scale: 1.02,
+        duration: 4,
+        ease: 'sine.inOut',
+        repeat: -1,
+        yoyo: true,
+        transformOrigin: 'center center'
+      })
+    }
+  }
+
   return {
     fadeInUpOnLoad,
     fadeInUp,
@@ -675,6 +797,9 @@ export const useScrollAnimation = () => {
     animateTestimonial,
     rotateBackground,
     animateSlider,
-    animateHeaderHero
+    animateHeaderHero,
+    animateHeroFeatures,
+    animateHeroText,
+    animateHeroBackground
   }
 }

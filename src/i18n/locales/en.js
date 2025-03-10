@@ -8,9 +8,12 @@ export default {
     title: "Tomosia's Ruby",
     header: {
       title: 'High Level MVC',
-      subtitle: 'Simplify business logic and rapid application development',
-      installButton: 'Install for free',
-      description: 'Open source library <br /> Join us to make it better'
+      subtitle: 'Revolutionize Your Codebase with HMVC Rails'
+    },
+    painPoints: {
+      p1: 'Tired of Messy Code? Organize with Ease!',
+      p2: 'Railway pattern prevents error loops automatically',
+      p3: 'Concept-first organization eliminates placement guesswork'
     }
   },
   knowledgeBanner: {
@@ -91,28 +94,29 @@ export default {
       slimController: {
         title: 'Slim Controller',
         description: [
-          'Streamline your controllers by removing business logic entirely.',
-          'Modern controllers serve as traffic directors - they handle HTTP requests, manage routing, and delegate processing to specialized Operations. This separation ensures clean, maintainable code and clear responsibility boundaries.'
+          'Controllers are streamlined to focus on HTTP requests and routing, ensuring they remain clean and efficient.',
+          'By delegating all business logic to specialized Operations, we maintain clear boundaries and enhance code maintainability, making it easier to manage and scale.'
         ]
       },
       domainModel: {
-        title: 'Domain Model Excellence',
+        title: 'Domain Model',
         description: [
-          'Transform your models into focused domain entities that excel at their core purpose: managing data relationships and database interactions. By removing business logic and validation concerns, models become more maintainable and scalable. This approach promotes better code organization and enhances team collaboration.'
+          'Models are refined to excel at managing data relationships and database interactions, their core strengths.',
+          'Extracting business logic and validation concerns allows models to be more focused and maintainable, fostering better team collaboration and scalability.'
         ]
       },
       validation: {
-        title: 'Intelligent Validation Layer',
+        title: 'Smart Validation',
         description: [
-          'Embrace a more logical approach to data validation by moving it to dedicated form objects. This separation creates a clear boundary between data validation and business logic.',
-          'Form objects handle data coercion, validation rules, and ensure data integrity before any business operations begin. This proactive validation strategy prevents invalid data from reaching your core business logic, reducing errors and improving system reliability.'
+          'Dedicated form objects handle all data validation, creating a clear separation between validation rules and business logic.',
+          'This proactive approach ensures data integrity early in the request cycle, preventing invalid data from compromising your core business operations and enhancing system reliability.'
         ]
       },
       operation: {
-        title: 'Orchestrated Business Logic',
+        title: 'Business Logic',
         description: [
-          'Operations act as conductors in your application\'s symphony, orchestrating complex business processes with clarity and precision.',
-          'Each operation encapsulates a specific business workflow, breaking it down into clear, sequential steps. This structured approach enhances code readability, facilitates testing, and makes complex business processes more manageable. Operations promote code reuse and make your application\'s business logic more maintainable and scalable.'
+          'Operations act as orchestrators, breaking down complex business processes into clear, sequential steps.',
+          'Each operation encapsulates a specific workflow, making your code more testable, maintainable, and easier to understand as your application grows, promoting code reuse and scalability.'
         ]
       }
     },
