@@ -16,18 +16,27 @@
                 <font-awesome-icon :icon="faHandSparkles" />
               </div>
               <span>{{ $t('hero.painPoints.p1') }}</span>
+              <div class="feature-info" data-bs-toggle="tooltip" :title="$t('hero.painPoints.p1_desc')">
+                <font-awesome-icon :icon="faCircleQuestion" />
+              </div>
             </div>
             <div class="feature-item">
               <div class="feature-icon">
                 <font-awesome-icon :icon="faSignsPost" />
               </div>
               <span>{{ $t('hero.painPoints.p2') }}</span>
+              <div class="feature-info" data-bs-toggle="tooltip" :title="$t('hero.painPoints.p2_desc')">
+                <font-awesome-icon :icon="faCircleQuestion" />
+              </div>
             </div>
             <div class="feature-item">
               <div class="feature-icon">
                 <font-awesome-icon :icon="faCode" />
               </div>
               <span>{{ $t('hero.painPoints.p3') }}</span>
+              <div class="feature-info" data-bs-toggle="tooltip" :title="$t('hero.painPoints.p3_desc')">
+                <font-awesome-icon :icon="faCircleQuestion" />
+              </div>
             </div>
           </div>
         </div>
@@ -43,18 +52,19 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import HeaderHeroSvg from './icons/MultiLayerIcon.vue'
 import { useSettings } from '@/config/settings'
-import { faHandSparkles, faSignsPost, faCode } from '@fortawesome/free-solid-svg-icons'
+import { faHandSparkles, faSignsPost, faCode, faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
 import { onMounted } from 'vue'
 import { useScrollAnimation } from '@/composables/useScrollAnimation'
+import { useBootstrap } from '@/plugins/bootstrap'
 
 const { getGithubUrl } = useSettings()
 
-
 onMounted(() => {
   const { animateHeroFeatures, animateHeroText, animateHeroBackground } = useScrollAnimation()
+  const bootstrap = useBootstrap()
 
   // Animate background
   animateHeroBackground('.header-hero__background svg')
@@ -64,6 +74,9 @@ onMounted(() => {
 
   // Animate hero features
   animateHeroFeatures('.hero-features', '.feature-item')
+
+  // Initialize tooltips
+  bootstrap.initTooltips()
 })
 </script>
 
@@ -228,6 +241,28 @@ onMounted(() => {
     font-weight: 500;
     color: var(--c-text-primary);
     line-height: 1.5;
+    flex: 1;
+  }
+
+  .feature-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    color: #3B82F6;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 
@@ -285,6 +320,72 @@ onMounted(() => {
           padding: 0.5rem 0.875rem;
         }
       }
+    }
+  }
+}
+
+// Custom tooltip styles for HeaderHeroComponent
+:deep(.tooltip) {
+  --bs-tooltip-max-width: 400px;
+  --bs-tooltip-bg: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  .tooltip-inner {
+    font-family: var(--font-sub-heading);
+    max-width: 400px !important;
+    width: fit-content;
+    min-width: 300px;
+    padding: 1rem 1.25rem;
+    color: rgba(255, 255, 255, 0.95);
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.12),
+      0 2px 4px -1px rgba(0, 0, 0, 0.07),
+      0 12px 16px -4px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(
+      145deg,
+      rgba(15, 23, 42, 0.85) 0%,
+      rgba(30, 41, 59, 0.85) 100%
+    );
+  }
+
+  @media (max-width: 768px) {
+    .tooltip-inner {
+      max-width: 300px !important;
+      min-width: 250px;
+      padding: 0.875rem 1rem;
+      font-size: 0.8125rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .tooltip-inner {
+      max-width: 250px !important;
+      min-width: 200px;
+      padding: 0.75rem 0.875rem;
+      font-size: 0.75rem;
+      line-height: 1.5;
+    }
+  }
+
+  .tooltip-arrow::before {
+    border-width: 7px;
+    opacity: 0.85;
+  }
+
+  // Enhanced show/hide animations
+  &.fade {
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+
+    &:not(.show) {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+
+    &.show {
+      transform: scale(1);
+      opacity: 1;
     }
   }
 }
