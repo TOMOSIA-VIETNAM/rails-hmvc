@@ -48,3 +48,40 @@
 // Utilities
 @import '../node_modules/bootstrap/scss/utilities/api';
 // scss-docs-end import-stack
+
+// Custom tooltip styles
+.tooltip {
+  --bs-tooltip-bg: rgba(15, 23, 42, 0.95);
+  --bs-tooltip-padding-x: 1rem;
+  --bs-tooltip-padding-y: 0.75rem;
+
+  .tooltip-inner {
+    font-weight: 300;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+    text-align: left;
+    border-radius: 0.5rem;
+  }
+
+  &.bs-tooltip-top .tooltip-arrow::before {
+    border-top-color: var(--bs-tooltip-bg);
+  }
+
+  &.bs-tooltip-bottom .tooltip-arrow::before {
+    border-bottom-color: var(--bs-tooltip-bg);
+  }
+
+  &.bs-tooltip-start .tooltip-arrow::before {
+    border-left-color: var(--bs-tooltip-bg);
+  }
+
+  &.bs-tooltip-end .tooltip-arrow::before {
+    border-right-color: var(--bs-tooltip-bg);
+  }
+
+  // Basic fade animation
+  &.fade {
+    transition: opacity 0.15s linear;
+  }
+}

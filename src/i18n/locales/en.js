@@ -11,9 +11,12 @@ export default {
       subtitle: 'Revolutionize Your Codebase with HMVC Rails'
     },
     painPoints: {
-      p1: 'Tired of Messy Code? Organize with Ease!',
-      p2: 'Railway pattern prevents error loops automatically',
-      p3: 'Concept-first organization eliminates placement guesswork'
+      p1: 'Wasting hours deciding where to put your code?',
+      p1_desc: 'This boilerplate saves you from "architecture hell" with a proven structure that just works.',
+      p2: 'Pulling your hair out with validation spaghetti?',
+      p2_desc: 'When the same model needs different validation rules across endpoints, our boilerplate prevents the nightmare of overlapping validations that silently break your app.',
+      p3: 'Drowning in bloated business logic?',
+      p3_desc: 'As your codebase grows, debugging becomes a treasure hunt from hell. Our boilerplate\'s clear layered architecture helps you isolate and fix issues in minutes, not days.'
     }
   },
   knowledgeBanner: {

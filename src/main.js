@@ -18,7 +18,7 @@ import { i18n } from '@/i18n'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /** Import Bootstrap */
-import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.js'
+import BootstrapPlugin from '@/plugins/bootstrap'
 
 /** Import Highlight.js
  * Docs: https://github.com/highlightjs/vue-plugin
@@ -34,7 +34,7 @@ const app = createApp(App)
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(createPinia())
 app.use(router)
-app.use(bootstrap)
+app.use(BootstrapPlugin)
 app.use(hljsVuePlugin)
 app.use(i18n)
 
