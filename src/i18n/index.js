@@ -1,12 +1,10 @@
 import { createI18n } from 'vue-i18n'
 import en from './locales/en'
 import ja from './locales/ja'
-import vi from './locales/vi'
 
 export const LOCALES = {
   ENGLISH: 'en',
-  JAPANESE: 'ja',
-  // VIETNAMESE: 'vi'
+  JAPANESE: 'ja'
 }
 
 const STORAGE_KEY = 'user-locale'
@@ -22,8 +20,7 @@ export const i18n = createI18n({
   fallbackLocale: LOCALES.ENGLISH,
   messages: {
     [LOCALES.ENGLISH]: en,
-    [LOCALES.JAPANESE]: ja,
-    [LOCALES.VIETNAMESE]: vi
+    [LOCALES.JAPANESE]: ja
   }
 })
 

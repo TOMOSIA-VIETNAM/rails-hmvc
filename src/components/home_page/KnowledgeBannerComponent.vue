@@ -100,9 +100,9 @@ onMounted(() => {
 
   &__desc {
     font-family: var(--font-sub-heading);
-    font-weight: 100;
+    font-weight: 200;
     font-size: clamp(1.1rem, 2vw, 1.4rem);
-    color: #fff;
+    color: #e0e0e0;
     will-change: transform, opacity;
   }
 

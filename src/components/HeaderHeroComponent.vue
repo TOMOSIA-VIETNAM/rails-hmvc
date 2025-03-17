@@ -109,7 +109,7 @@ onMounted(() => {
     z-index: 2;
 
     .hero-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 800;
       letter-spacing: -1.5px;
       font-size: clamp(3rem, 5.5vw, 4.2rem);
@@ -121,7 +121,7 @@ onMounted(() => {
     }
 
     .hero-subtitle {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-sub-heading);
       font-weight: 200;
       font-size: clamp(1.2rem, 2.5vw, 1.8rem);
       color: #475569;
@@ -320,72 +320,6 @@ onMounted(() => {
           padding: 0.5rem 0.875rem;
         }
       }
-    }
-  }
-}
-
-// Custom tooltip styles for HeaderHeroComponent
-:deep(.tooltip) {
-  --bs-tooltip-max-width: 400px;
-  --bs-tooltip-bg: rgba(15, 23, 42, 0.5);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-
-  .tooltip-inner {
-    font-family: var(--font-sub-heading);
-    max-width: 400px !important;
-    width: fit-content;
-    min-width: 300px;
-    padding: 1rem 1.25rem;
-    color: rgba(255, 255, 255, 0.95);
-    box-shadow:
-      0 4px 6px -1px rgba(0, 0, 0, 0.12),
-      0 2px 4px -1px rgba(0, 0, 0, 0.07),
-      0 12px 16px -4px rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: linear-gradient(
-      145deg,
-      rgba(15, 23, 42, 0.85) 0%,
-      rgba(30, 41, 59, 0.85) 100%
-    );
-  }
-
-  @media (max-width: 768px) {
-    .tooltip-inner {
-      max-width: 300px !important;
-      min-width: 250px;
-      padding: 0.875rem 1rem;
-      font-size: 0.8125rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .tooltip-inner {
-      max-width: 250px !important;
-      min-width: 200px;
-      padding: 0.75rem 0.875rem;
-      font-size: 0.75rem;
-      line-height: 1.5;
-    }
-  }
-
-  .tooltip-arrow::before {
-    border-width: 7px;
-    opacity: 0.85;
-  }
-
-  // Enhanced show/hide animations
-  &.fade {
-    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-
-    &:not(.show) {
-      transform: scale(0.95);
-      opacity: 0;
-    }
-
-    &.show {
-      transform: scale(1);
-      opacity: 1;
     }
   }
 }
